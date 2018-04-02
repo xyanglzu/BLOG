@@ -86,10 +86,13 @@
 <meta property="og:site_name" content="小金的博客">
 <meta property="og:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T02:39:35.800Z">
+<meta property="og:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png">
+<meta property="og:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291521316.png">
+<meta property="og:updated_time" content="2018-04-02T03:16:54.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法工程师面经">
 <meta name="twitter:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
+<meta name="twitter:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png">
 
 
 
@@ -370,14 +373,39 @@
 </li>
 <li><p>SVM原问题和对偶问题关系</p>
 <ul>
-<li><p>原始问题：<br>$$<br>\begin{align}<br>\min_{w, b, \xi_i}  \quad &amp;  \frac{1}{2} ||w|^2 + C \sum_{i=1}^N \xi_i  &amp;&amp; \<br> s.t. \quad&amp; y_i (w \cdot x_i + b) \ge 1 - \xi_i, &amp; i = 1,2,\cdots, N  \<br> &amp;\xi_i, \ge 0 \quad &amp; i = 1,2,\cdots, N &amp;<br>\end{align}<br>$$</p>
+<li><p>原始问题：<br>$$<br>\begin{align}<br>\min_{w, b, \xi_i}  \quad &amp;  \frac{1}{2} ||w|^2 + C \sum_{i=1}^N \xi_i  &amp;&amp; \<br> s.t. \quad&amp; y_i (w \cdot x_i + b) \ge 1 - \xi_i, &amp; i = 1,2,\cdots, N  \<br> &amp;\xi_i, \ge 0 \quad &amp; i = 1,2,\cdots, N &amp; \<br>\end{align}<br>$$</p>
 </li>
 <li><p>拉格朗日函数：<br>$$<br>L(w, b, \xi, \alpha, \mu) = \frac{1}{2}||w||^2 + C \sum_{i=1}^N \xi_i - \sum_{i=1}^N \alpha_i (y_i (w \cdot x_i + b) - 1 + \xi_i) - \sum_{i=1}^N \mu_i \xi_i<br>$$</p>
 </li>
 <li><p>KKT条件：<br>$$</p>
-<p>$$<br>​</p>
+<p>$$</p>
 </li>
 </ul>
+</li>
+<li><p>L1正则为什么可以把系数压缩成0？</p>
+<ul>
+<li><p>L0范数是指向量中非0的元素的个数。如果我们用L0范数来规则化一个参数矩阵W的话，就是希望W的大部分元素都是0。换句话说，让参数W是稀疏的。但是实现稀疏大家都是使用L1范数，为什么？这是因为L0范数很难求导</p>
+</li>
+<li><p>L1范数是指向量中各个元素绝对值之和。它是L0范数的最优凸近似，称为“稀疏规则算子”</p>
+</li>
+<li><p><strong>为什么使参数稀疏？</strong></p>
+<ul>
+<li>特征选择：一般来说$x_i$的大部分特征与输出$y_i$无关，经过参数稀疏，可以将无关的特征去掉，完成自动选择特征的任务。</li>
+<li>可解释性：训练出的模型容易解释，使得输出只和部分特征有关，更加直观。</li>
+</ul>
+</li>
+<li><p>L1在江湖上人称Lasso，L2人称Ridge。L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。Lasso在特征选择时候非常有用，而Ridge就只是一种规则化而已。</p>
+</li>
+<li><p>L1,L2范式来自于对数据的先验知识.如果你认为,你现有的数据来自于高斯分布,那么就应该在代价函数中加入数据先验P(x),一般由于推导和计算方便会加入对数似然,也就是log(P(x)),然后再去优化,这样最终的结果是,由于你的模型参数考虑了数据先验,模型效果当然就更好，取对数后的log(P(x))就剩下一个平方项了,这就是L2范式的由来–高斯先验.<br>同样,如果你认为你的数据是稀疏的,不妨就认为它来自某Laplace分布。laplace分布的概率密度函数为：</p>
+<p><img src="/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png" alt="Laplace"></p>
+<p>对Laplace概率密度函数求对数，得到的就是一个绝对值，就是L1范数。</p>
+</li>
+</ul>
+</li>
+<li><p>坐标下降法的具体实现细节</p>
+<p><img src="/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291521316.png" alt="mage-20180329152131"></p>
+</li>
+<li><p>​</p>
 </li>
 </ol>
 
@@ -404,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/03/26/love-fang/" rel="next" title="love fang">
+                <i class="fa fa-chevron-left"></i> love fang
               </a>
             
           </div>
@@ -413,6 +441,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/30/电影推荐系统/" rel="prev" title="电影推荐系统">
+                电影推荐系统 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
