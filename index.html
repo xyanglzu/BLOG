@@ -242,6 +242,318 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/Solumon插入算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaojin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小金的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/10/Solumon插入算法/" itemprop="url">Solumon插入算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T16:08:47+08:00">
+                2018-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/车货匹配算法/" itemprop="url" rel="index">
+                    <span itemprop="name">车货匹配算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前推值"><a href="#前推值" class="headerlink" title="前推值"></a>前推值</h1><p>$u$为准备插入$j$与$j-1$的客户</p>
+<p>$b_j$为车辆到达$j$开始服务时间</p>
+<p>$t_{ij}$为在点$i, j$之间的时间</p>
+<p>$s_j$为在$j$的服务时间</p>
+<p>点$j$的时间窗为$[e_j, l_j]$</p>
+<p>$b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间</p>
+<p>———————————————————————</p>
+<p>在VRPTW中，有：</p>
+<p>$b_j = \max{e_j, b_{j-1} + s_{j-1}+t_{j,j-1}}$ </p>
+<p>$w_j = \max{0, e_j - b_j}$</p>
+<p>定义前推值$PF$:</p>
+<p>$PF_j = b_j’- b_j$</p>
+<p>有以下定理：</p>
+<p>$PF_{j+1} = \max{0, PF_j - w_{j+1}}$</p>
+<p>$PF_j$表示了插入$u$后对到达$j$时间的影响，它对下一个结点$j+1$的影响就是抵消掉原本在$j+1$结点的等待时间之后所剩余的时间，若没有剩余，说明$b_j’$与$b_j$都是$j+1$的开始服务时间，因此之差就是0。</p>
+<p>———————————————————————</p>
+<p>将$u$插入$j$与$j-1$之间的充要条件为：</p>
+<ul>
+<li>$b_u \le l_u$</li>
+<li>$b_{ir} + PF_{ir} \le l_{lr}, j \le ir \le n$</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/背包问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaojin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小金的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/04/背包问题/" itemprop="url">背包问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T16:20:54+08:00">
+                2018-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>子问题：即 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```f[i][v] = max&#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="优化空间复杂度"><a href="#优化空间复杂度" class="headerlink" title="优化空间复杂度"></a>优化空间复杂度</h2><p>以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第i行的值只利用了前一行的值。因此可以将二维数组优化为一维数组。</p>
+<p>我们在每次主循环中，以<figure class="highlight v"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">```java</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = V; v &gt;= <span class="number">0</span>; v--) &#123;</span><br><span class="line">        f[v] = max&#123;f[v], f[v - c[i]] + w[i]&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，在内循环中，显然第i件物品不会影响<code>v = 0..c[i]</code>的状态，所以内循环就可以修改为<code>for (int v = V; v &gt;= c[i]; v--)</code>。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li>恰好装满背包：除了<code>f[0]</code>为0，其他<code>f[1..V]</code>均为负无穷，这样就能保证<code>f[v]</code>不是正好装下第i件物品时，就仍然是负无穷</li>
+<li>没有要求装满背包：初始化<code>f[0..V]</code>为0</li>
+</ul>
+<h2 id="常数优化"><a href="#常数优化" class="headerlink" title="常数优化"></a>常数优化</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/华为笔试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -536,6 +848,8 @@
 <ul>
 <li>fork函数会返回两次结果，因为操作系统会把当前进程的数据复制一遍，然后程序就分为两个进程继续运行后面的代码，fork分别在父进程和子进程中返回。子进程中返回的值pid为0，父进程返回的是子进程id</li>
 </ul>
+</li>
+<li><p>​</p>
 </li>
 </ol>
 
@@ -1103,7 +1417,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1113,10 +1427,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">2</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 

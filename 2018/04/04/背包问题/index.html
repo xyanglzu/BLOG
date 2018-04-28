@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="进程与线程有什么区别：  进程是资源分配的基本单位，线程是CPU调度或程序执行的最小单位。在Mac、Windows等采用微内核结构的操作系统中，进程只是资源分配的单位，而不是调度运行的单位，真正调度运行的单位是线程。因此实现并发功能的单位是线程。 进程有独立的地址空间，启动一个新的进程，就需要建立众多的数据表来维护它的代码段、堆栈段、数据段，是一种非常昂贵的多任务工作方式。而运行一个进程中的线程">
+<meta name="description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++面试">
-<meta property="og:url" content="http://yoursite.com/2018/04/02/c-面试/index.html">
+<meta property="og:title" content="背包问题">
+<meta property="og:url" content="http://yoursite.com/2018/04/04/背包问题/index.html">
 <meta property="og:site_name" content="小金的博客">
-<meta property="og:description" content="进程与线程有什么区别：  进程是资源分配的基本单位，线程是CPU调度或程序执行的最小单位。在Mac、Windows等采用微内核结构的操作系统中，进程只是资源分配的单位，而不是调度运行的单位，真正调度运行的单位是线程。因此实现并发功能的单位是线程。 进程有独立的地址空间，启动一个新的进程，就需要建立众多的数据表来维护它的代码段、堆栈段、数据段，是一种非常昂贵的多任务工作方式。而运行一个进程中的线程">
+<meta property="og:description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201804021449381.png">
-<meta property="og:updated_time" content="2018-04-11T08:00:07.872Z">
+<meta property="og:updated_time" content="2018-04-04T09:12:52.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++面试">
-<meta name="twitter:description" content="进程与线程有什么区别：  进程是资源分配的基本单位，线程是CPU调度或程序执行的最小单位。在Mac、Windows等采用微内核结构的操作系统中，进程只是资源分配的单位，而不是调度运行的单位，真正调度运行的单位是线程。因此实现并发功能的单位是线程。 进程有独立的地址空间，启动一个新的进程，就需要建立众多的数据表来维护它的代码段、堆栈段、数据段，是一种非常昂贵的多任务工作方式。而运行一个进程中的线程">
-<meta name="twitter:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201804021449381.png">
+<meta name="twitter:title" content="背包问题">
+<meta name="twitter:description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 
 
 
@@ -121,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/02/c-面试/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/04/背包问题/"/>
 
 
 
 
 
-  <title>c++面试 | 小金的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>背包问题 | 小金的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -244,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/c-面试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/背包问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaojin">
@@ -261,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++面试</h1>
+          <h1 class="post-title" itemprop="name headline">背包问题</h1>
         
 
         <div class="post-meta">
@@ -273,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T14:58:20+08:00">
-                2018-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T16:20:54+08:00">
+                2018-04-04
               </time>
             
 
@@ -296,8 +294,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试/" itemprop="url" rel="index">
-                    <span itemprop="name">面试</span>
+                  <a href="/categories/笔试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试</span>
                   </a>
                 </span>
 
@@ -333,59 +331,16 @@
       
 
       
-        <ol>
-<li><p>进程与线程有什么区别：</p>
-<ul>
-<li>进程是资源分配的基本单位，线程是CPU调度或程序执行的最小单位。在Mac、Windows等采用微内核结构的操作系统中，进程只是资源分配的单位，而不是调度运行的单位，真正调度运行的单位是线程。因此实现并发功能的单位是线程。</li>
-<li>进程有独立的地址空间，启动一个新的进程，就需要建立众多的数据表来维护它的代码段、堆栈段、数据段，是一种非常昂贵的多任务工作方式。而运行一个进程中的线程，它们之间共享大部分数据，使用相同的地址空间，因此启动/切换一个线程比进程操作要快，花费要小。但是线程拥有自己的局部变量与堆栈。</li>
-<li>线程之间通信比较方便。同一进程下的线程共享数据（比如全部变量、静态变量），通过这些数据来通信方便快捷，但需要处理好访问变量的同步与互斥。而进程之间只能通过进程通信的方式进行。</li>
-<li>多进程比多线程健壮，一个线程死掉整个进程就死掉了。但保护模式下，进程死掉对另一个进程没有直接影响。</li>
-<li>每个线程都有自己的一个程序入口、顺序执行序列和程序的出口，但线程不能独立执行，必须依附于程序之中，由应用程序提供多个线程的并发控制。</li>
+        <h1 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>子问题：即 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```f[i][v] = max&#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="优化空间复杂度"><a href="#优化空间复杂度" class="headerlink" title="优化空间复杂度"></a>优化空间复杂度</h2><p>以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第i行的值只利用了前一行的值。因此可以将二维数组优化为一维数组。</p>
+<p>我们在每次主循环中，以<figure class="highlight v"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">```java</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = V; v &gt;= <span class="number">0</span>; v--) &#123;</span><br><span class="line">        f[v] = max&#123;f[v], f[v - c[i]] + w[i]&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外，在内循环中，显然第i件物品不会影响<code>v = 0..c[i]</code>的状态，所以内循环就可以修改为<code>for (int v = V; v &gt;= c[i]; v--)</code>。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li>恰好装满背包：除了<code>f[0]</code>为0，其他<code>f[1..V]</code>均为负无穷，这样就能保证<code>f[v]</code>不是正好装下第i件物品时，就仍然是负无穷</li>
+<li>没有要求装满背包：初始化<code>f[0..V]</code>为0</li>
 </ul>
-</li>
-<li><p>什么是线程安全？</p>
-<ul>
-<li>如果多线程的程序运行结果是可预期的，与单线程的运行结果一致，就是线程安全的。</li>
-</ul>
-</li>
-<li><p>线程的基本概念、线程的基本状态及状态之间的关系？</p>
-<ul>
-<li><p>线程是CPU使用的基本单元；由线程ID、程序计数器、寄存器集合与堆栈组成。与属于同一进程的其他线程共享代码段、数据段与其他操作系统资源（如打开文件和信号）</p>
-</li>
-<li><p>线程有四种状态：新生状态、可运行状态、被阻塞状态、死亡状态</p>
-</li>
-<li><p>进程有三种状态：就绪状态、执行状态、阻塞状态</p>
-<p><img src="/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201804021449381.png" alt="mage-20180402144938"></p>
-</li>
-</ul>
-</li>
-<li><p>多线程同步和互斥有几种实现方式？</p>
-<ul>
-<li>线程间同步方法分为两类：</li>
-<li>用户模式：不需要切换内核态，只在用户态完成操作（原子操作、临界区）</li>
-<li>内核模式：利用系统内核对象的 单一性同步，使用时需要切换内核态与用户态（事件、信号量、互斥量）</li>
-</ul>
-</li>
-<li><p>堆和栈的区别：</p>
-<p>一个由C/C++编译的程序占用内存分为以下几个部分：</p>
-<ul>
-<li>栈区（Stack）——由编译器自动分配释放，存放函数的参数值，局部变量的值。类似于数据结构中的栈</li>
-<li>堆区（Heap）——由程序员分配释放，若程序员不释放，程序结束后由操作系统释放。类似于链表。利用malloc函数或者new运算符</li>
-<li>全局区（静态区）（Static）——全局变量和静态变量存储在此，初始化后的全局变量与静态变量在一块区域，未初始化的在相邻的另一块区域。程序结束系统释放</li>
-<li>文字常量区——常量字符串。程序结束系统释放</li>
-<li>程序代码区——存放函数体的二进制代码</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp </span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;  <span class="comment">// 全局初始化区 </span></span><br><span class="line"><span class="keyword">char</span> *p1;   <span class="comment">// 全局未初始化区 </span></span><br><span class="line">main() </span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">int</span> b; 		<span class="comment">// 栈 </span></span><br><span class="line"><span class="keyword">char</span> s[] = <span class="string">"abc"</span>; <span class="comment">// 栈 </span></span><br><span class="line"><span class="keyword">char</span> *p2;   <span class="comment">// 栈 </span></span><br><span class="line"><span class="keyword">char</span> *p3 = <span class="string">"123456"</span>; <span class="comment">// 123456\0在常量区，p3在栈上。 </span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> c =<span class="number">0</span>； <span class="comment">// 全局（静态）初始化区 </span></span><br><span class="line">p1 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>); </span><br><span class="line">p2 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>); </span><br><span class="line"><span class="comment">// 分配得来得10和20字节的区域就在堆区, p1,p2本身在栈上。 </span></span><br><span class="line"><span class="built_in">strcpy</span>(p1, <span class="string">"123456"</span>); <span class="comment">// 123456\0放在常量区，编译器可能会将它与p3所指向的"123456"优化成一个地方。 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>fork()函数</p>
-<ul>
-<li>fork函数会返回两次结果，因为操作系统会把当前进程的数据复制一遍，然后程序就分为两个进程继续运行后面的代码，fork分别在父进程和子进程中返回。子进程中返回的值pid为0，父进程返回的是子进程id</li>
-</ul>
-</li>
-<li><p>​</p>
-</li>
-</ol>
-
+<h2 id="常数优化"><a href="#常数优化" class="headerlink" title="常数优化"></a>常数优化</h2>
       
     </div>
     
@@ -409,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/电影推荐系统/" rel="next" title="电影推荐系统">
-                <i class="fa fa-chevron-left"></i> 电影推荐系统
+              <a href="/2018/04/04/华为笔试/" rel="next" title="华为笔试">
+                <i class="fa fa-chevron-left"></i> 华为笔试
               </a>
             
           </div>
@@ -419,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/04/华为笔试/" rel="prev" title="华为笔试">
-                华为笔试 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/10/Solumon插入算法/" rel="prev" title="Solumon插入算法">
+                Solumon插入算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -525,6 +489,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1背包"><span class="nav-number">1.</span> <span class="nav-text">0-1背包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思路"><span class="nav-number">1.2.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化空间复杂度"><span class="nav-number">1.3.</span> <span class="nav-text">优化空间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">1.4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常数优化"><span class="nav-number">1.5.</span> <span class="nav-text">常数优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
