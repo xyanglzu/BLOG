@@ -86,13 +86,10 @@
 <meta property="og:site_name" content="小金的博客">
 <meta property="og:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png">
-<meta property="og:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291521316.png">
-<meta property="og:updated_time" content="2018-04-02T06:58:51.194Z">
+<meta property="og:updated_time" content="2018-04-28T03:56:25.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法工程师面经">
 <meta name="twitter:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
-<meta name="twitter:image" content="http://yoursite.com/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png">
 
 
 
@@ -397,15 +394,10 @@
 <li><p>L1在江湖上人称Lasso，L2人称Ridge。L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。Lasso在特征选择时候非常有用，而Ridge就只是一种规则化而已。</p>
 </li>
 <li><p>L1,L2范式来自于对数据的先验知识.如果你认为,你现有的数据来自于高斯分布,那么就应该在代价函数中加入数据先验P(x),一般由于推导和计算方便会加入对数似然,也就是log(P(x)),然后再去优化,这样最终的结果是,由于你的模型参数考虑了数据先验,模型效果当然就更好，取对数后的log(P(x))就剩下一个平方项了,这就是L2范式的由来–高斯先验.<br>同样,如果你认为你的数据是稀疏的,不妨就认为它来自某Laplace分布。laplace分布的概率密度函数为：</p>
-<p><img src="/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291510257.png" alt="Laplace"></p>
+<p>​</p>
 <p>对Laplace概率密度函数求对数，得到的就是一个绝对值，就是L1范数。</p>
 </li>
 </ul>
-</li>
-<li><p>坐标下降法的具体实现细节</p>
-<p><img src="/var/folders/xm/bv9q0c8j0tl753vytq1g18780000gn/T/abnerworks.Typora/image-201803291521316.png" alt="mage-20180329152131"></p>
-</li>
-<li><p>​</p>
 </li>
 </ol>
 
