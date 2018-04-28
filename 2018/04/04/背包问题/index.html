@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="0.0">
+<meta name="description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 <meta property="og:type" content="article">
 <meta property="og:title" content="背包问题">
 <meta property="og:url" content="http://yoursite.com/2018/04/04/背包问题/index.html">
 <meta property="og:site_name" content="小金的博客">
-<meta property="og:description" content="0.0">
+<meta property="og:description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-28T04:57:29.569Z">
+<meta property="og:updated_time" content="2018-04-28T05:11:55.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="背包问题">
-<meta name="twitter:description" content="0.0">
+<meta name="twitter:description" content="0-1背包题目有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 基本思路子问题：即 12```f[i][v] = max&amp;#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&amp;#125; 优化空间复杂度以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第">
 
 
 
@@ -97,7 +97,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -331,9 +331,7 @@
       
 
       
-        <p>0.0</p>
-<a id="more"></a>
-<h1 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。</p>
+        <h1 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。</p>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>子问题：即 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```f[i][v] = max&#123;f[i-1][v], f[i-1][v-c[i]] + w[i]&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="优化空间复杂度"><a href="#优化空间复杂度" class="headerlink" title="优化空间复杂度"></a>优化空间复杂度</h2><p>以上方法时间复杂度为O(VN)，空间复杂度也是O(VN)，需要维护一个二维数组，但是在利用状态方程求解时，第i行的值只利用了前一行的值。因此可以将二维数组优化为一维数组。</p>
 <p>我们在每次主循环中，以<figure class="highlight v"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">```java</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> v = V; v &gt;= <span class="number">0</span>; v--) &#123;</span><br><span class="line">        f[v] = max&#123;f[v], f[v - c[i]] + w[i]&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -539,7 +537,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -638,6 +636,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
