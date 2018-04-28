@@ -242,6 +242,325 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/Mac下Python更新/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaojin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小金的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/28/Mac下Python更新/" itemprop="url">Mac下Python更新及conda操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T10:43:38+08:00">
+                2018-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="conda操作"><a href="#conda操作" class="headerlink" title="conda操作"></a>conda操作</h1><h2 id="conda更新"><a href="#conda更新" class="headerlink" title="conda更新"></a>conda更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新anaconda</span></span><br><span class="line">conda update anaconda</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新conda</span></span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新python</span></span><br><span class="line">conda update python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">conda update -all</span><br></pre></td></tr></table></figure>
+<h2 id="conda环境管理"><a href="#conda环境管理" class="headerlink" title="conda环境管理"></a>conda环境管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span></span><br><span class="line">conda create --name python34 python=3.4</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 安装好后，使用activate激活某个环境</span></span><br><span class="line">activate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> activate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 此时，再次输入</span></span><br><span class="line">python --version</span><br><span class="line"><span class="comment"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 如果想返回默认的python 2.7环境，运行</span></span><br><span class="line">deactivate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> deactivate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove --name python34 --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前环境下安装anaconda包集合</span></span><br><span class="line">conda install anaconda</span><br></pre></td></tr></table></figure>
+<h2 id="conda包管理"><a href="#conda包管理" class="headerlink" title="conda包管理"></a>conda包管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前环境下已安装的包</span></span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看某个指定环境的已安装包</span></span><br><span class="line">conda list -n python34</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找package信息</span></span><br><span class="line">conda search numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装package</span></span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"><span class="comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span></span><br><span class="line"><span class="comment"># 也可以通过-c指定通过某个channel安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新package</span></span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除package</span></span><br><span class="line">conda remove -n python34 numpy</span><br></pre></td></tr></table></figure>
+<h2 id="conda源配置"><a href="#conda源配置" class="headerlink" title="conda源配置"></a>conda源配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置路径</span></span><br><span class="line">~/.condarc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加Anaconda的TUNA镜像</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"><span class="comment"># TUNA的help中镜像地址加有引号，需要去掉</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置搜索时显示通道地址</span></span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<h1 id="pip操作"><a href="#pip操作" class="headerlink" title="pip操作"></a>pip操作</h1><h2 id="pip配置源"><a href="#pip配置源" class="headerlink" title="pip配置源"></a>pip配置源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置文件路径</span></span><br><span class="line">~/.pip/pip.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件内容</span></span><br><span class="line">[global] </span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn </span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line"><span class="comment">#全部更新pip的安装包</span></span><br><span class="line"><span class="comment"># mac ubuntu</span></span><br><span class="line">pip freeze --<span class="built_in">local</span> | grep -v <span class="string">'^\-e'</span> | cut -d = -f 1  | xargs -n1 pip install -U</span><br><span class="line"><span class="comment"># windows</span></span><br><span class="line">pip freeze &gt; requirements.txt </span><br><span class="line">pip install -r requirements.txt –upgrade </span><br><span class="line">del requirements.txt</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/Mac下多Python环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaojin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小金的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/28/Mac下多Python环境/" itemprop="url">Mac下多Python环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T09:46:53+08:00">
+                2018-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="多版本python的安装路径识别"><a href="#多版本python的安装路径识别" class="headerlink" title="多版本python的安装路径识别"></a>多版本python的安装路径识别</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xiny @ XinY in ~ [9:52:55]</span></span><br><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line">/Users/xiny/anaconda2/bin/python</span><br><span class="line"></span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:53:04]</span></span><br><span class="line">$ <span class="built_in">which</span> python2.7</span><br><span class="line">/Users/xiny/anaconda2/bin/python2.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:53:09]</span></span><br><span class="line">$ <span class="built_in">which</span> python3</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/python3</span><br><span class="line"></span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:53:15]</span></span><br><span class="line">$ <span class="built_in">which</span> python3.6</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/python3.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xiny @ XinY in ~ [9:53:20]</span></span><br><span class="line">$ ll /Users/xiny/anaconda2/bin/python</span><br><span class="line">lrwxr-xr-x  1 xiny  staff     9B  1 17 15:58 /Users/xiny/anaconda2/bin/python -&gt; python2.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:53:49]</span></span><br><span class="line">$ ll /Users/xiny/anaconda2/bin/python2.7</span><br><span class="line">-rwxrwxr-x  1 xiny  staff    12K  1 17 15:53 /Users/xiny/anaconda2/bin/python2.7</span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:54:06]</span></span><br><span class="line">$ ll /usr/<span class="built_in">local</span>/bin/python3</span><br><span class="line">lrwxr-xr-x  1 xiny  admin    34B  3  6 16:41 /usr/<span class="built_in">local</span>/bin/python3 -&gt; ../Cellar/python/3.6.4/bin/python3</span><br><span class="line"></span><br><span class="line"><span class="comment"># xiny @ XinY in ~ [9:54:36]</span></span><br><span class="line">$ ll /usr/<span class="built_in">local</span>/bin/python3.6</span><br><span class="line">lrwxr-xr-x  1 xiny  admin    36B  3  6 16:41 /usr/<span class="built_in">local</span>/bin/python3.6 -&gt; ../Cellar/python/3.6.4/bin/python3.6</span><br></pre></td></tr></table></figure>
+<h1 id="删除Python"><a href="#删除Python" class="headerlink" title="删除Python"></a>删除Python</h1><p>Python安装后自动生成：</p>
+<ul>
+<li>Python framework，即Python框架；</li>
+<li>Python应用目录；</li>
+<li>指向Python的连接</li>
+</ul>
+<h2 id="常见Python安装目录"><a href="#常见Python安装目录" class="headerlink" title="常见Python安装目录"></a>常见Python安装目录</h2><p>对于Mac自带的Python，其框架目录为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/Frameworks/Python.framework</span><br></pre></td></tr></table></figure>
+<p>官网Python，其默认目录框架为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Frameworks/Python.framework</span><br></pre></td></tr></table></figure>
+<p>brew安装的Python，其默认目录框架为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/Cellar</span><br></pre></td></tr></table></figure>
+<p>anaconda安装的Python，目录为用户指定目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/xiny/anaconda</span><br></pre></td></tr></table></figure>
+<h2 id="系统与官网Python删除"><a href="#系统与官网Python删除" class="headerlink" title="系统与官网Python删除"></a>系统与官网Python删除</h2><p>删除Python就要删除以上3部分：</p>
+<ol>
+<li><p>删除框架：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Frameworks/Python.framework/Versions/x.x</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>删除应用目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="string">"/Applications/Python x.x"</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>删除指向Python的连接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">ls -l /usr/<span class="built_in">local</span>/bin | grep <span class="string">'../Library/Frameworks/Python.framework/Versions/x.x'</span> | awk <span class="string">'&#123;print $9&#125;'</span> | tr -d @ | xargs rm</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="brew卸载Python"><a href="#brew卸载Python" class="headerlink" title="brew卸载Python"></a>brew卸载Python</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall python</span><br></pre></td></tr></table></figure>
+<h2 id="conda卸载Python"><a href="#conda卸载Python" class="headerlink" title="conda卸载Python"></a>conda卸载Python</h2><p>直接删除anaconda，并在用户配置文件中删除anaconda的路径</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/Solumon插入算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1417,7 +1736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1428,7 +1747,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
