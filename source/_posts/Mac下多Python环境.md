@@ -7,6 +7,10 @@ categories: Python
 
 ---
 
+0.0
+
+<!--more-->
+
 # 多版本python的安装路径识别
 
 ```bash

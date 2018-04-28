@@ -1,11 +1,15 @@
 ---
-title: Solumon插入算法
+title: Solomon插入算法
 toc: true
 date: 2018-04-10 16:08:47
 tags:
 categories: 车货匹配算法
 
 ---
+
+0.0
+
+<!--more-->
 
 # 前推值
 
