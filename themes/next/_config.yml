@@ -112,9 +112,9 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-scheme: Mist
-#scheme: Pisces
-#scheme: Gemini
+# scheme: Mist
+scheme: Pisces
+# scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -216,8 +216,8 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
-  length: 100
+  enable: true
+  length: 0
 
 # Post meta display settings
 post_meta:

@@ -7,9 +7,7 @@ categories: Python
 
 ---
 
-0.0
 
-<!--more-->
 
 # conda操作
 
