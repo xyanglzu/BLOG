@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小金的博客">
 <meta property="og:description" content="多版本python的安装路径识别123456789101112131415# xiny @ XinY in ~ [9:52:55]$ which python/Users/xiny/anaconda2/bin/python# xiny @ XinY in ~ [9:53:04]$ which python2.7/Users/xiny/anaconda2/bin/python2.7# xiny @">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-28T05:12:23.197Z">
+<meta property="og:updated_time" content="2018-08-22T12:24:40.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下多Python环境">
 <meta name="twitter:description" content="多版本python的安装路径识别123456789101112131415# xiny @ XinY in ~ [9:52:55]$ which python/Users/xiny/anaconda2/bin/python# xiny @ XinY in ~ [9:53:04]$ which python2.7/Users/xiny/anaconda2/bin/python2.7# xiny @">
@@ -351,11 +351,9 @@
 <ol>
 <li><p>删除框架：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Frameworks/Python.framework/Versions/x.x</span><br></pre></td></tr></table></figure>
-<p>​</p>
 </li>
 <li><p>删除应用目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="string">"/Applications/Python x.x"</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="string">"/Applications/Python x.x"</span>​</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除指向Python的连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">ls -l /usr/<span class="built_in">local</span>/bin | grep <span class="string">'../Library/Frameworks/Python.framework/Versions/x.x'</span> | awk <span class="string">'&#123;print $9&#125;'</span> | tr -d @ | xargs rm</span><br></pre></td></tr></table></figure>
@@ -476,7 +474,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -487,7 +485,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
