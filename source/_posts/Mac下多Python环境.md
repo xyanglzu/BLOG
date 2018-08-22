@@ -92,15 +92,11 @@ anaconda安装的Python，目录为用户指定目录：
    sudo rm -rf /Library/Frameworks/Python.framework/Versions/x.x
    ```
 
-   ​
-
 2. 删除应用目录
 
    ```bash
-   sudo rm -rf "/Applications/Python x.x"
+   sudo rm -rf "/Applications/Python x.x"​
    ```
-
-   ​
 
 3. 删除指向Python的连接
 
