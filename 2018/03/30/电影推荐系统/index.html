@@ -314,9 +314,9 @@
 <li>User Ids -&gt; “ratings.csv” ,  “tags.csv”</li>
 <li>Movie Ids -&gt; “ratings.csv”, “tag.csv”, “movies.csv”, “links.csv”</li>
 </ul>
-<p>“rating.csv”—-userId, movieId, rating, timestamp (评论时间距离1970年1月1日的秒数)</p>
-<p>“tags.csv”—-userId, movieId, tag (由用户为影片分类的标签), timestamp</p>
-<p>“movies.csv”—-movieId, title, genres (种类，流派)</p>
+<p>“rating.csv”——userId, movieId, rating, timestamp (评论时间距离1970年1月1日的秒数)</p>
+<p>“tags.csv”——userId, movieId, tag (由用户为影片分类的标签), timestamp</p>
+<p>“movies.csv”——movieId, title, genres (种类，流派)</p>
 <p>​    genres：</p>
 <ul>
 <li>Action</li>
@@ -339,7 +339,7 @@
 <li>Western</li>
 <li>(no genres listed)</li>
 </ul>
-<p>“links.csv”—-movieId, imdbId, tmdbId</p>
+<p>“links.csv”——movieId, imdbId, tmdbId</p>
 
       
     </div>
@@ -655,7 +655,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

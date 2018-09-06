@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
+<meta name="description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) } 对于给定的输入实例$x$，按照上式可得">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习算法工程师面经">
 <meta property="og:url" content="http://yoursite.com/2018/03/27/面试/index.html">
 <meta property="og:site_name" content="小金的博客">
-<meta property="og:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
+<meta property="og:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) } 对于给定的输入实例$x$，按照上式可得">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-28T05:12:11.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法工程师面经">
-<meta name="twitter:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： $$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$ $$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$  对于给定的输入实例">
+<meta name="twitter:description" content="介绍LR（Logistic Regression） 定义： 二元LR模型是用来估计一个二元响应变量的概率值。  二项LR模型是一下的条件概率分布： P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) } 对于给定的输入实例$x$，按照上式可得">
 
 
 
@@ -337,9 +337,7 @@
 <li><p>二元LR模型是用来估计一个二元响应变量的概率值。</p>
 </li>
 <li><p>二项LR模型是一下的条件概率分布：</p>
-<p>$$P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }$$</p>
-<p>$$P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }$$</p>
-</li>
+<script type="math/tex; mode=display">P(Y=1|x) = \frac{exp(w \cdot x + b)}{1 +exp(w \cdot x + b) }</script><script type="math/tex; mode=display">P(Y=0 | x) = \frac{1}{1 +exp(w \cdot x + b) }</script></li>
 <li><p>对于给定的输入实例$x$，按照上式可得到对应的条件概率，比较两个条件概率大小，将实例分到较大的一类。</p>
 </li>
 </ul>
@@ -355,7 +353,7 @@
 <li>对数几率函数是任意阶可导凸函数，容易取得最优解</li>
 </ul>
 <h2 id="多项LR模型"><a href="#多项LR模型" class="headerlink" title="多项LR模型"></a>多项LR模型</h2><ul>
-<li><p>离散型随机变量Y的取值集合为${1, 2, \dots, K}$</p>
+<li><p>离散型随机变量Y的取值集合为$\{1, 2, \dots, K\}$</p>
 <p>$P(Y=k|x) = \frac{exp(w_k \cdot x)}{1 + \sum_{k=1}^{K-1} exp(w_k \cdot x)}$</p>
 <p>$P(Y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} exp(w_k \cdot x)}$</p>
 </li>
@@ -370,10 +368,16 @@
 </li>
 <li><p>SVM原问题和对偶问题关系</p>
 <ul>
-<li><p>原始问题：<br>$$<br>\begin{align}<br>\min_{w, b, \xi_i}  \quad &amp;  \frac{1}{2} ||w|^2 + C \sum_{i=1}^N \xi_i  &amp;&amp; \<br> s.t. \quad&amp; y_i (w \cdot x_i + b) \ge 1 - \xi_i, &amp; i = 1,2,\cdots, N  \<br> &amp;\xi_i, \ge 0 \quad &amp; i = 1,2,\cdots, N &amp; \<br>\end{align}<br>$$</p>
-</li>
-<li><p>拉格朗日函数：<br>$$<br>L(w, b, \xi, \alpha, \mu) = \frac{1}{2}||w||^2 + C \sum_{i=1}^N \xi_i - \sum_{i=1}^N \alpha_i (y_i (w \cdot x_i + b) - 1 + \xi_i) - \sum_{i=1}^N \mu_i \xi_i<br>$$</p>
-</li>
+<li><p>原始问题：</p>
+<script type="math/tex; mode=display">
+\begin{align} 
+\min_{w, b, \xi_i}  \quad &  \frac{1}{2} ||w|^2 + C \sum_{i=1}^N \xi_i  && \\
+ s.t. \quad& y_i (w \cdot x_i + b) \ge 1 - \xi_i, & i = 1,2,\cdots, N  \\
+ &\xi_i, \ge 0 \quad & i = 1,2,\cdots, N & \\
+\end{align}</script></li>
+<li><p>拉格朗日函数：</p>
+<script type="math/tex; mode=display">
+L(w, b, \xi, \alpha, \mu) = \frac{1}{2}||w||^2 + C \sum_{i=1}^N \xi_i - \sum_{i=1}^N \alpha_i (y_i (w \cdot x_i + b) - 1 + \xi_i) - \sum_{i=1}^N \mu_i \xi_i</script></li>
 <li><p>KKT条件：</p>
 <p>​</p>
 </li>
@@ -393,7 +397,7 @@
 </li>
 <li><p>L1在江湖上人称Lasso，L2人称Ridge。L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。Lasso在特征选择时候非常有用，而Ridge就只是一种规则化而已。</p>
 </li>
-<li><p>L1,L2范式来自于对数据的先验知识.如果你认为,你现有的数据来自于高斯分布,那么就应该在代价函数中加入数据先验P(x),一般由于推导和计算方便会加入对数似然,也就是log(P(x)),然后再去优化,这样最终的结果是,由于你的模型参数考虑了数据先验,模型效果当然就更好，取对数后的log(P(x))就剩下一个平方项了,这就是L2范式的由来–高斯先验.<br>同样,如果你认为你的数据是稀疏的,不妨就认为它来自某Laplace分布。laplace分布的概率密度函数为：</p>
+<li><p>L1,L2范式来自于对数据的先验知识.如果你认为,你现有的数据来自于高斯分布,那么就应该在代价函数中加入数据先验P(x),一般由于推导和计算方便会加入对数似然,也就是log(P(x)),然后再去优化,这样最终的结果是,由于你的模型参数考虑了数据先验,模型效果当然就更好，取对数后的log(P(x))就剩下一个平方项了,这就是L2范式的由来—高斯先验.<br>同样,如果你认为你的数据是稀疏的,不妨就认为它来自某Laplace分布。laplace分布的概率密度函数为：</p>
 <p>​</p>
 <p>对Laplace概率密度函数求对数，得到的就是一个绝对值，就是L1范数。</p>
 </li>
@@ -715,7 +719,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

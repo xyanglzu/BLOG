@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="朴素贝叶斯法风险函数为最大后验概率：$$f(x) = \text{argmax}_{c_k} P(c_k | X = x)$$即：$$f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}">
+<meta name="description" content="朴素贝叶斯法风险函数为最大后验概率：  f(x) = \text{argmax}_{c_k} P(c_k | X = x)即：  f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}最大">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习模型对比.md">
 <meta property="og:url" content="http://yoursite.com/2018/08/12/机器学习模型对比-md/index.html">
 <meta property="og:site_name" content="小金的博客">
-<meta property="og:description" content="朴素贝叶斯法风险函数为最大后验概率：$$f(x) = \text{argmax}_{c_k} P(c_k | X = x)$$即：$$f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}">
+<meta property="og:description" content="朴素贝叶斯法风险函数为最大后验概率：  f(x) = \text{argmax}_{c_k} P(c_k | X = x)即：  f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}最大">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-09-04T02:56:52.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习模型对比.md">
-<meta name="twitter:description" content="朴素贝叶斯法风险函数为最大后验概率：$$f(x) = \text{argmax}_{c_k} P(c_k | X = x)$$即：$$f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}">
+<meta name="twitter:description" content="朴素贝叶斯法风险函数为最大后验概率：  f(x) = \text{argmax}_{c_k} P(c_k | X = x)即：  f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}最大">
 
 
 
@@ -332,7 +332,11 @@
       
 
       
-        <h1 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h1><p>风险函数为最大后验概率：<br>$$<br>f(x) = \text{argmax}_{c_k} P(c_k | X = x)<br>$$<br>即：<br>$$<br>f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}<br>$$<br>最大似然估计不考虑先验概率，将其作为1；</p>
+        <h1 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h1><p>风险函数为最大后验概率：</p>
+<script type="math/tex; mode=display">
+f(x) = \text{argmax}_{c_k} P(c_k | X = x)</script><p>即：</p>
+<script type="math/tex; mode=display">
+f(x) = \text{argmax}_{c_k} \frac{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)} {\sum_k{P(Y=c_k)\Pi_j P(X^{(j)} = x^{(j)} | Y = c_k)}}</script><p>最大似然估计不考虑先验概率，将其作为1；</p>
 <p>最大后验概率考虑先验概率，即$P(Y=c_k)$。</p>
 
       
@@ -655,7 +659,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

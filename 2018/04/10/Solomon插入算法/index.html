@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max{e_j, b_{j-1">
+<meta name="description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max\{e_j, b_{j-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Solomon插入算法">
 <meta property="og:url" content="http://yoursite.com/2018/04/10/Solomon插入算法/index.html">
 <meta property="og:site_name" content="小金的博客">
-<meta property="og:description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max{e_j, b_{j-1">
+<meta property="og:description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max\{e_j, b_{j-">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-28T05:12:32.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Solomon插入算法">
-<meta name="twitter:description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max{e_j, b_{j-1">
+<meta name="twitter:description" content="前推值$u$为准备插入$j$与$j-1$的客户 $b_j$为车辆到达$j$开始服务时间 $t_{ij}$为在点$i, j$之间的时间 $s_j$为在$j$的服务时间 点$j$的时间窗为$[e_j, l_j]$ $b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间 ——————————————————————— 在VRPTW中，有： $b_j = \max\{e_j, b_{j-">
 
 
 
@@ -339,12 +339,12 @@
 <p>$b_j’$ 为$j$与$j-1$之间插入$u$后，车辆到达$j$的时间</p>
 <p>———————————————————————</p>
 <p>在VRPTW中，有：</p>
-<p>$b_j = \max{e_j, b_{j-1} + s_{j-1}+t_{j,j-1}}$ </p>
-<p>$w_j = \max{0, e_j - b_j}$</p>
+<p>$b_j = \max\{e_j, b_{j-1} + s_{j-1}+t_{j,j-1}\}$ </p>
+<p>$w_j = \max\{0, e_j - b_j\}$</p>
 <p>定义前推值$PF$:</p>
 <p>$PF_j = b_j’- b_j$</p>
 <p>有以下定理：</p>
-<p>$PF_{j+1} = \max{0, PF_j - w_{j+1}}$</p>
+<p>$PF_{j+1} = \max\{0, PF_j - w_{j+1}\}$</p>
 <p>$PF_j$表示了插入$u$后对到达$j$时间的影响，它对下一个结点$j+1$的影响就是抵消掉原本在$j+1$结点的等待时间之后所剩余的时间，若没有剩余，说明$b_j’$与$b_j$都是$j+1$的开始服务时间，因此之差就是0。</p>
 <p>———————————————————————</p>
 <p>将$u$插入$j$与$j-1$之间的充要条件为：</p>
@@ -667,7 +667,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

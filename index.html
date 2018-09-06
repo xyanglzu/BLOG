@@ -338,6 +338,7 @@
           常用排序算法对比
 
 
+
 类别
 排序方法
 平均时间复杂度
@@ -354,7 +355,7 @@
 直接插入
 $O(n^2)$
 $O(n)$
-$O(n^2)$
+$O(n^2)
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -812,7 +813,11 @@ $O(n^2)$
       
         
           
-          朴素贝叶斯法风险函数为最大后验概率：$$f(x) = \text{argmax}_{c_k} P(c_k | X = x)$$即：$$f(x) = \text{argmax}_{c_k} \frac{
+          朴素贝叶斯法风险函数为最大后验概率：
+
+f(x) = \text{argmax}_{c_k} P(c_k | X = x)即：
+
+f(x) = \text{argmax}_{c_k} \frac{P(
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -964,6 +969,7 @@ $O(n^2)$
 
 
 
+
 生成模型
 判别模型
 
@@ -972,7 +978,7 @@ $O(n^2)$
 
 定义
 1.  由生成方法学习的模型为生成模型；              2. 由数据学习联合概率分布$P(X,Y)$，然后求条件概率分布$P(Y
-X)$作为预测模
+X)$作为预测
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2063,7 +2069,24 @@ AMiner（
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
