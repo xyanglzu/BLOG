@@ -1,5 +1,5 @@
 ---
-title: 生成模型与判别模型.md
+title: 生成模型与判别模型
 toc: true
 date: 2018-08-12 17:19:04
 tags:
