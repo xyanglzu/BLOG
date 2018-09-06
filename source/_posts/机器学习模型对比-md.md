@@ -2,8 +2,8 @@
 title: 机器学习模型对比.md
 toc: true
 date: 2018-08-12 17:38:04
-tags:
-categories:
+tags: 机器学习
+categories: 机器学习
 ---
 
 # 朴素贝叶斯法

@@ -10,3 +10,12 @@ categories: 面试
 
 ## HTTP请求过程
 
+```mermaid
+graph TD
+    id1[yangxin]
+    id2[xiaofang]
+
+    id1 --> id2
+
+```
+
