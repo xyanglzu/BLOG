@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>机器学习算法清单 | 小金的博客</title>
-  <meta name="keywords" content=" 机器学习 ">
-  <meta name="description" content="机器学习算法清单 | 小金的博客">
+  <title>概率分布总结 | 小金的博客</title>
+  <meta name="keywords" content=" 概率分布 ">
+  <meta name="description" content="概率分布总结 | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -324,9 +324,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-机器学习算法清单" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-概率分布总结" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">机器学习算法清单</h1>
+        <h1 class="article-title">概率分布总结</h1>
     
     <div class="article-meta">
         
@@ -341,19 +341,19 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">机器学习</a>
+            <a href="javascript:" class="color5">概率分布</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-09-04 16:07:42'>2018-09-04 10:55</time>
+        创建时间:<time class="date" title='更新时间: 2018-09-09 22:57:30'>2018-09-09 22:16</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:958</span>
+        <span>字数:139</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -372,7 +372,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常见的机器学习算法列表"><span class="toc-text">常见的机器学习算法列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性回归"><span class="toc-text">线性回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑回归"><span class="toc-text">逻辑回归</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#累积分布函数"><span class="toc-text">累积分布函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概率密度函数"><span class="toc-text">概率密度函数</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -387,103 +387,16 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一般来说，机器学习算法分为三种类型：</p>
-<ol>
-<li><p><strong>监督学习</strong></p>
-<p><strong>工作原理</strong>：该算法由一个目标/结果变量（或因变量）组成，该变量（或因变量）由给定的一组预测器（自变量）进行预测得到。使用这些变量集，我们可以生成输入映射到期望输出的函数。通过训练算法模型，让模型在训练数据上得到期望的准确度。</p>
-<p><strong>监督学习的例子</strong>包括：回归、决策树、随机森林、KNN、Logistic 回归等。</p>
-</li>
-<li><p><strong>非监督学习</strong></p>
-<p><strong>工作原理</strong>：该算法没有任何目标/结果变量（或因变量）来预测或估计。它用于对样本中的不同类别进行聚类，广泛用于在不知道标签的情况下对不同群体进行划分。</p>
-<p><strong>无监督学习的例子</strong>包括：Apriori 算法，k-均值。</p>
-</li>
-<li><p><strong>增强学习</strong></p>
-<p><strong>工作原理</strong>：机器被训练来做出特定的决定。它是这样工作的：机器通过反复试验不断训练自己，从过去的经验中学习，并试图运用最好的知识，作出准确的决策。</p>
-<p><strong>强化学习的例子</strong>包括：马尔可夫（Markov）决策过程。</p>
-</li>
-</ol>
-<h1 id="常见的机器学习算法列表"><a href="#常见的机器学习算法列表" class="headerlink" title="常见的机器学习算法列表"></a>常见的机器学习算法列表</h1><ol>
-<li>线性回归</li>
-<li>逻辑回归</li>
-<li>决策树</li>
-<li>SVM</li>
-<li>朴素贝叶斯</li>
-<li>k近邻</li>
-<li>k-聚类</li>
-<li>随机森林</li>
-<li>降维算法</li>
-<li>梯度提升算法<ol>
-<li>GBM</li>
-<li>XGBoost</li>
-<li>LightGBM</li>
-<li>CatBoost</li>
-</ol>
-</li>
-</ol>
-<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p><strong>线性回归（Linear Regression）</strong>基于连续变量$s$的实数值估计（房屋价格，通话数量，总销售额等）。在这里，我们通过拟合一条最佳直线来建立自变量$x$和因变量$y$之间的关系。这个最佳拟合线称为回归线，用线性方程$y= w*x+b$表示。</p>
-<p>系数 $w$ 和 $b$ 是基于最小化数据点与回归线之间的距离之差的平方和而推导得到的。 </p>
-<p>线性回归主要有两类：简单线性回归和多元线性回归。<strong>简单线性回归</strong>的特点是只有一个自变量。<strong>多元线性回归</strong>的特征是有多个（大于 1）独立变量。当然，为了找到最佳拟合线，可以使用多项式拟合或曲线拟合，分别称为<strong>多项式回归</strong>和<strong>曲线回归</strong>。</p>
-<p>Python代码：</p>
-<pre><code class="lang-python">from sklearn.datasets import load_boston
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-
-# 波士顿房价回归数据
-data = load_boston()
-X = data.get(&#39;data&#39;)
-y = data.get(&#39;target&#39;)
-
-# 分割训练集与测试集
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                    test_size=0.2,
-                                                    random_state=123)
-
-# 线性回归
-linear = LinearRegression(normalize=True)
-
-linear.fit(X_train, y_train)
-linear.score(X_train, y_train)
-
-# Equation coefficient and Intercept
-print(&#39;Coefficient: \n&#39;, linear.coef_)
-print(&#39;Intercept: \n&#39;, linear.intercept_)
-
-# Predict Output
-predicted = linear.predict(X_test)
-print(predicted)
-</code></pre>
-<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p><strong>逻辑回归（Logistic Regression）</strong>是一种分类算法而不是回归算法。它根据给定的一组自变量估计离散值（二进制值如 0/1、是/否、真/假）。简单地说，它通过将数据拟合到 logit 函数来预测事件发生的概率。因此称之为 logit 回归。因为它预测的是概率值，所以输出介于 0 到 1 之间。</p>
-<p>它的目标是最大化观测样本值的似然性，而不是像线性回归那样最小化误差的平方和。</p>
-<p>为什么使用log函数？</p>
-<p>log函数是代替阶跃函数的最好选择之一。</p>
-<pre><code class="lang-python">from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-
-# 虹膜分类数据
-data = load_iris()
-X = data.get(&#39;data&#39;)
-y = data.get(&#39;target&#39;)
-
-# 分割训练集与测试集
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                    test_size=0.2,
-                                                    random_state=123)
-
-# 线性回归
-lr = LogisticRegression()
-
-lr.fit(X_train, y_train)
-print(lr.score(X_train, y_train))
-
-# Equation coefficient and Intercept
-print(&#39;Coefficient: \n&#39;, lr.coef_)
-print(&#39;Intercept: \n&#39;, lr.intercept_)
-
-# Predict Output
-predicted = lr.predict(X_test)
-print(predicted == y_test)
-</code></pre>
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="累积分布函数"><a href="#累积分布函数" class="headerlink" title="累积分布函数"></a>累积分布函数</h2><p>累积分布函数(CDF)计算给定x值的累积概率。即$P(X \le x)$的概率。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fv3nghylwij308j05gq2t.jpg" alt="image-20180909221907303"></p>
+<ul>
+<li>对于连续分布，CDF给出概率密度函数下的区域，最多至指定的x值。</li>
+<li>对于离散分布，CDF给出指定的x值的累积概率。</li>
+</ul>
+<h2 id="概率密度函数"><a href="#概率密度函数" class="headerlink" title="概率密度函数"></a>概率密度函数</h2><p>随机变量$X$的概率密度函数(PDF)，可计算事件的概率：</p>
+<ul>
+<li>对于连续分布，$X$在区间$(a,b)$中具有值的概率为其在区间$(a,b)$中的PDF下的区域。</li>
+</ul>
 
       
        
@@ -493,12 +406,12 @@ print(predicted == y_test)
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>机器学习算法清单</p>
-    <p><span>文章字数:</span><span class="post-count">958</span></p>
+    <p><span>文章标题:</span>概率分布总结</p>
+    <p><span>文章字数:</span><span class="post-count">139</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-09-04, 10:55:37</p>
-    <p><span>最后更新:</span>2018-09-04, 16:07:42</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/09/04/机器学习算法清单/" title="机器学习算法清单">http://yoursite.com/2018/09/04/机器学习算法清单/</a>
+    <p><span>发布时间:</span>2018-09-09, 22:16:50</p>
+    <p><span>最后更新:</span>2018-09-09, 22:57:30</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/09/09/概率分布总结/" title="概率分布总结">http://yoursite.com/2018/09/09/概率分布总结/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
