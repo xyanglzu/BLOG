@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>概率分布总结 | 小金的博客</title>
-  <meta name="keywords" content=" 概率分布 ">
-  <meta name="description" content="概率分布总结 | 小金的博客">
+  <title>Leecode-38.Count and Say | 小金的博客</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Leecode-38.Count and Say | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -334,9 +334,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-概率分布总结" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Leecode-38-Count-and-Say" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">概率分布总结</h1>
+        <h1 class="article-title">Leecode-38.Count and Say</h1>
     
     <div class="article-meta">
         
@@ -344,26 +344,20 @@
         
         <span class="book">
             
-            <a href="javascript:" data-rel="机器学习">机器学习</a>
+            <a href="javascript:" data-rel="Leecode">Leecode</a>
             
         </span>
         
         
-        <span class="tag">
-            
-            <a href="javascript:" class="color5">概率分布</a>
-            
-        </span>
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-09-11 15:55:14'>2018-09-11 15:05</time>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-09-10 17:02:15'>2018-09-09 22:16</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:564</span>
+        <span>字数:615</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -382,7 +376,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#累积分布函数"><span class="toc-text">累积分布函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概率密度函数"><span class="toc-text">概率密度函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#期望"><span class="toc-text">期望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方差"><span class="toc-text">方差</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概率分布"><span class="toc-text">概率分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#伯努利分布"><span class="toc-text">伯努利分布</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解法1："><span class="toc-text">解法1：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法2："><span class="toc-text">解法2：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法3："><span class="toc-text">解法3：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法4："><span class="toc-text">解法4：</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -397,51 +391,82 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="累积分布函数"><a href="#累积分布函数" class="headerlink" title="累积分布函数"></a>累积分布函数</h2><p>累积分布函数(CDF)计算给定x值的累积概率。即$P(X \le x)$的概率。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fv3nghylwij308j05gq2t.jpg" alt="image-20180909221907303"></p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode-cn.com/problems/count-and-say/description/" target="_blank" rel="noopener">Leecode 38 Count and Say</a></p>
+<p>报数序列是指一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：</p>
+<pre><code>1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221
+</code></pre><p><code>1</code> 被读作  <code>&quot;one 1&quot;</code>  (<code>&quot;一个一&quot;</code>) , 即 <code>11</code>。<br><code>11</code> 被读作 <code>&quot;two 1s&quot;</code> (<code>&quot;两个一&quot;</code>）, 即 <code>21</code>。<br><code>21</code> 被读作 <code>&quot;one 2&quot;</code>,  “<code>one 1&quot;</code> （<code>&quot;一个二&quot;</code> ,  <code>&quot;一个一&quot;</code>) , 即 <code>1211</code></p>
+<p>给定一个正整数 <em>n</em> ，输出报数序列的第 <em>n</em> 项。</p>
+<p>注意：整数顺序将表示为一个字符串。</p>
+<p>示例1：</p>
+<pre><code>输入: 1
+输出: &quot;1&quot;
+</code></pre><p>示例2：</p>
+<pre><code>输入: 4
+输出: &quot;1211&quot;
+</code></pre><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="解法1："><a href="#解法1：" class="headerlink" title="解法1："></a>解法1：</h2><p><em>n=1时，$result_1$为<code>&#39;1&#39;</code>;计算n时，通过扫描$result_{n-1}$ 字符串，统计连续相同的数字s，并将该数字的个数count及自身s拼接在最终结果中。</em></p>
+<pre><code class="lang-python">class Solution(object):
+    def countAndSay(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: str
+        &quot;&quot;&quot;
+        result = &quot;1&quot;
+        for i in range(2, n+1):
+            count = 1
+            cur = result[0]
+            tmp = &quot;&quot;
+            for j in range(1, len(result)):
+                if result[j] == cur:
+                    count += 1
+                else:
+                    tmp += str(count) + cur
+                    count = 1
+                    cur = result[j]
+            tmp += str(count) + cur
+            result = tmp
+        return result
+</code></pre>
+<h2 id="解法2："><a href="#解法2：" class="headerlink" title="解法2："></a>解法2：</h2><p><em>利用正则表达式的替换方法</em></p>
 <ul>
-<li>对于连续分布，CDF给出概率密度函数下的区域，最多至指定的x值。</li>
-<li>对于离散分布，CDF给出指定的x值的累积概率。</li>
+<li><em>re.sub中的函数参数，目的是计算相同数字的个数，将个数与数字拼接</em></li>
+<li><em>正则表达式</em><code>r&#39;(.)\1*&#39;</code><em>匹配一个或多个等于group(1)的字符，如’11122’，group(1)就是字符’1’，匹配该字符多次，即’111’</em></li>
+<li><em>re.sub实现将匹配到的</em></li>
 </ul>
-<h2 id="概率密度函数"><a href="#概率密度函数" class="headerlink" title="概率密度函数"></a>概率密度函数</h2><p>随机变量$X$的概率密度函数(PDF)，可计算事件的概率：</p>
-<ul>
-<li>对于连续分布，$X$在区间$(a,b)$中具有值的概率为其在区间$(a,b)$中的PDF下的区域。</li>
-<li>对于离散分布，X 在区间 (a, b) 中具有值的概率是 (a, b) 中 X 的可能离散值的 PDF（也称为概率密度函数）之和。</li>
-</ul>
-<p>$x$位于区间$(a,b)$的概率为：</p>
-<script type="math/tex; mode=display">
-p(x \in (a,b)) = \int_a^b p(x) dx</script><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>在概率分布$p(x)$下，函数$f (x)$的平均值被称为$f (x)$的期望(expectation)，记作$E[f ]$。 </p>
-<p>一个离散变量，定义为：</p>
-<script type="math/tex; mode=display">
-E[f] = \sum_x p(x) f(x)</script><p>一个连续变量，定义为：</p>
-<script type="math/tex; mode=display">
-E[f] = \int p(x)f(x) dx</script><p><strong>多变量函数的期望</strong>，通过下标表明被平均的是哪个变量，如$E_x[f(x,y)]$，表示函数$f(x,y)$是关于$x$的分布的平均，是变量$y$的函数。</p>
-<p><strong>条件分布的条件期望</strong>(conditional expectation)，即</p>
-<script type="math/tex; mode=display">
-E_x[f|y] = \sum_x p(x|y) f(x)</script><h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><p>方差定义为：</p>
-<script type="math/tex; mode=display">
-var[f] = E[(f(x) - E[f(x)])^2]</script><p>度量了$f(x)$在均值$E[f(x)]$附近的变化性大小。也可写作：</p>
-<script type="math/tex; mode=display">
-var[f] = E[f(x)^2] - E[f(x)]^2</script><p>对于两个随机变量$x$与$y$，<strong>协方差(covariance</strong>定义为：</p>
-<script type="math/tex; mode=display">
-cov[x,y] = E_{x,y}[(x-E[x])(y-E[y])]=E_{x,y}[xy] - E[x]E[y]</script><p>表示了多大程度上$x$和$y$会共同变化。如果x与y相互独立，则协方差为0</p>
-<h1 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h1><h2 id="伯努利分布"><a href="#伯努利分布" class="headerlink" title="伯努利分布"></a>伯努利分布</h2><p>单一二元变量$x \in {0, 1}$的分布，例如，抛硬币的结果</p>
-<p>由一个连续参数$\mu \in [0, 1]$控制，这个参数表示$x=1$的概率</p>
-<script type="math/tex; mode=display">
-\begin{align}
+<pre><code class="lang-python">class Solution(object):
+    def countAndSay(self, n):
+        s = &#39;1&#39;
+        for _ in range(n - 1):
+            s = re.sub(r&#39;(.)\1*&#39;, lambda m: str(len(m.group(0))) + m.group(1), s)
+        return s
+</code></pre>
+<h2 id="解法3："><a href="#解法3：" class="headerlink" title="解法3："></a>解法3：</h2><p><em>正则表达式</em><code>r&#39;((.)\2*)</code>，第一个括号里面是group(1)——连续相同的字符，第二个括号里面是group(2)——单个字符，因此re.findall返回了group(1)与group(2)的列表</p>
+<pre><code class="lang-python">def countAndSay(self, n):
+    s = &#39;1&#39;
+    for _ in range(n - 1):
+        s = &#39;&#39;.join(str(len(group)) + digit
+                    for group, digit in re.findall(r&#39;((.)\2*)&#39;, s))
+    return s
+</code></pre>
+<h2 id="解法4："><a href="#解法4：" class="headerlink" title="解法4："></a>解法4：</h2><p><em>itertools.groupby将字符串s将连续相同字符分为一组，每一组包括了字符及其对应的连续字符列表，如：</em></p>
+<pre><code class="lang-python">for digit, group in itertools.groupby(&quot;111221&quot;):
+    print digit, list(group)
 
-Bern(x|\mu) &= \mu ^ x (1-\mu) ^ {(1-x)} \\
-E[x] &= \mu \\
-var[x] &= \mu (1-\mu) \\
-mode[x] &= \left\{
-            \begin{aligned}
-                1 & \quad \text{如果} \mu \ge 0.5 \\
-                2 & \quad \text{否则}
-            \end{aligned}
-            \right . \\
-H[x] &= -\mu \ln \mu - (1 - \mu) \ln(1 - \mu)
+1 [&#39;1&#39;, &#39;1&#39;, &#39;1&#39;]
+2 [&#39;2&#39;, &#39;2&#39;]
+1 [&#39;1&#39;]
+</code></pre>
+<pre><code class="lang-python">def countAndSay(self, n):
+    s = &#39;1&#39;
+    for _ in range(n - 1):
+        s = &#39;&#39;.join(str(len(list(group))) + digit
+                    for digit, group in itertools.groupby(s))
+    return s
+</code></pre>
 
-\end{align}</script>
       
        
     </div>
@@ -450,12 +475,12 @@ H[x] &= -\mu \ln \mu - (1 - \mu) \ln(1 - \mu)
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>概率分布总结</p>
-    <p><span>文章字数:</span><span class="post-count">564</span></p>
+    <p><span>文章标题:</span>Leecode-38.Count and Say</p>
+    <p><span>文章字数:</span><span class="post-count">615</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-09-09, 22:16:50</p>
-    <p><span>最后更新:</span>2018-09-10, 17:02:15</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/09/09/概率分布总结/" title="概率分布总结">http://yoursite.com/2018/09/09/概率分布总结/</a>
+    <p><span>发布时间:</span>2018-09-11, 15:05:31</p>
+    <p><span>最后更新:</span>2018-09-11, 15:55:14</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/09/11/Leecode-38-Count-and-Say/" title="Leecode-38.Count and Say">http://yoursite.com/2018/09/11/Leecode-38-Count-and-Say/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
