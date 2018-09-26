@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>c++面试 | 小金的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="c++面试 | 小金的博客">
+  <title>面试-逻辑回归 | 小金的博客</title>
+  <meta name="keywords" content=" 逻辑回归 ">
+  <meta name="description" content="面试-逻辑回归 | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -420,9 +420,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-c-面试" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-面试-逻辑回归" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">c++面试</h1>
+        <h1 class="article-title">面试-逻辑回归</h1>
     
     <div class="article-meta">
         
@@ -435,15 +435,21 @@
         </span>
         
         
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">逻辑回归</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-04-28 13:12:18'>2018-04-02 14:58</time>
+        创建时间:<time class="date" title='更新时间: 2018-09-25 23:10:55'>2018-09-20 11:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:1.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -462,7 +468,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础篇"><span class="toc-text">基础篇</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高级篇"><span class="toc-text">高级篇</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L1正则化求导方法"><span class="toc-text">L1正则化求导方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归"><span class="toc-text">线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ridge回归"><span class="toc-text">Ridge回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lasso回归"><span class="toc-text">Lasso回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#坐标下降法"><span class="toc-text">坐标下降法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最小角回归法"><span class="toc-text">最小角回归法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -477,71 +483,112 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>进程与线程有什么区别：</p>
+        <h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h1><ol>
+<li><p><strong>请写一下LR的cost function和梯度下降参数迭代公式</strong></p>
+<hr>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P(Y=1|x) &= \frac{\exp(\beta^Tx)}{1+\exp(\beta^Tx)} = \sigma(x) \\
+P(Y=0|x) &= \frac{1}{1+\exp(\beta^Tx)} = 1 - \sigma(x) \\
+l(w,b) &= -\ln L(w,b) \\
+       &= -\sum_{i=1}^{m} (y_i \ln(\sigma(x_i)) + (1 - y_i) \ln(1-\sigma(x_i))) \\
+       &= -\sum_{i=1}^{m} (y_i (\beta^Tx_i) - \ln (1+\exp(\beta^Tx_i))) \\
+       &= \sum_{i=1}^{m} (\ln (1+\exp(\beta^Tx_i)) - y_i (\beta^Tx_i)) \\
+\frac{\partial l}{\partial \beta} &= \sum_{i=1}^m ((\sigma(x_i) - y_i)x_i) \\
+\beta &= \beta + \sum_{i=1}^m (x_i(y_i - \sigma(x_i))) \\
+\end{aligned}</script></li>
+</ol>
+<p>为什么可以用似然函数？答：因为目标是要让预测为正的的概率最大，且预测为负的概率也最大，即每一个样本预测都要得到最大的概率，将所有的样本预测后的概率进行相乘都最大，这就能到似然函数了</p>
+<ol>
+<li><strong>怎么防止过拟合</strong></li>
+</ol>
+<hr>
+<p>通过正则化方法。正则化方法是指在进行目标函数或代价函数优化时，在目标函数或代价函数后面加上一个正则项，一般有L1正则与L2正则等。</p>
+<ol>
+<li><strong>为什么正则化可以防止过拟合？</strong></li>
+</ol>
+<hr>
+<p>过拟合表现在训练数据集上的误差非常小，而测试数据集上的误差反而增大。其原因一般是由于模型过于复杂， 过分拟合数据的噪声。正则化是对模型参数添加先验条件，使得模型复杂度较小，对于噪声的扰动较小。</p>
+<p>比如抛硬币，五次都是向上，可能得到的结果是向上的概率为1，但是这是严重过拟合的。如果加上先验0.5，抛硬币的结果就不会再那么离谱。</p>
+<ol>
+<li><strong>L1正则化与L2正则化有什么区别？</strong></li>
+</ol>
+<hr>
+<p>首先都是用于避免过拟合。</p>
+<p>不同点：<strong>L2与L1区别在于，L1是拉普拉斯先验，L2是高斯先验。</strong></p>
+<p>L1计算的是参数的1范数，即绝对值的和，L2计算的是参数的2范数，即各项平方和。</p>
+<p>L1可以产生稀疏解，可以让一部分特征的系数缩小到0，从而间接的实现特征的选择。所以L1适用于特征之间有关联的情况。</p>
+<p>L2是让所有特征的系数缩小，但不会减少为0，它会使得优化求解稳定快速。适用于特征之间没有关联的情况。</p>
+<p>由于L1服从拉普拉斯分布，所以L1在0处不可导，难以计算，这个方法可以用Proximal Algorithms或ADMM来解决。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fvh7q29260j30gw0aq0t4.jpg" alt="v2-f2f9e95b70a7ce926beed810e80045a9_hd"></p>
+<p>上图中的模型是线性回归，有两个特征，要优化的参数分别是w1和w2，左图的正则化是l2，右图是l1。蓝色线就是优化过程中遇到的等高线，一圈代表一个目标函数值，圆心就是样本观测值（假设一个样本），半径就是误差值，受限条件就是红色边界（就是正则化那部分），二者相交处，才是最优参数。可见右边的最优参数只可能在坐标轴上，所以就会出现0权重参数，使得模型稀疏。</p>
+<ol>
+<li><strong>L1正则化不可导，怎么求解？</strong></li>
+</ol>
+<hr>
+<p>坐标轴下降法（按照每个坐标轴一个一个使其收敛）</p>
+<p>最小角回归（是一个逐步的过程，每一步都选择一个相关性很大的特征，总的运算步数只和特征数目有关，和训练大小无关）</p>
+<ol>
+<li><strong>逻辑回归为什么一般性能差？</strong></li>
+</ol>
+<hr>
+<p>LR是线性的，不能得到非线性关系，实际问题并不完全能用线性关系就能拟合。</p>
+<ol>
+<li><strong>如何用LR解决非线性问题？</strong></li>
+</ol>
+<hr>
+<p>将特征离散成高维的特征可以解决分类模型的非线性问题</p>
+<h1 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h1><ol>
+<li><strong>为什么逻辑回归比线性回归要好？</strong></li>
+</ol>
+<hr>
+<p>逻辑回归和线性回归首先都是广义的线性回归，</p>
+<p>其次经典线性模型的优化目标函数是最小二乘，而逻辑回归则是似然函数，</p>
+<p>另外线性回归在整个实数域范围内进行预测，敏感度一致，而分类范围，需要在[0,1]。逻辑回归就是一种减小预测范围，将预测值限定为[0,1]间的一种回归模型，因而对于这类问题来说，逻辑回归的鲁棒性比线性回归的要好</p>
+<ol>
+<li><strong>逻辑回归与最大熵模型MaxEnt的关系?</strong></li>
+</ol>
+<hr>
+<p>逻辑回归跟最大熵模型<strong>没有本质区别</strong>。逻辑回归是最大熵对应类别为<strong>二类</strong>时的特殊情况，也就是当逻辑回归类别扩展到<strong>多类</strong>别时，就是最大熵模型。</p>
+<ol>
+<li><strong>LR参数求解的优化方法</strong></li>
+</ol>
+<hr>
+<p>梯度下降法，随机梯度下降法，牛顿法，LBFGS，BFGS,OWLQN</p>
+<ol>
+<li><strong>工程上，怎么实现LR的并行化？有哪些并行化的工具</strong></li>
+</ol>
+<p>逻辑回归的并行化最主要的就是对<strong>目标函数梯度计算的并行化</strong>。</p>
+<p>算法的并行化有两种</p>
+<ol>
+<li>无损的并行化：算法天然可以并行，并行只是提高了计算的速度和解决问题的规模，但和正常执行的结果是一样的。</li>
+<li>有损的并行化：算法本身不是天然并行的，需要对算法做一些近似来实现并行化，这样并行化之后的双方和正常执行的结果并不一致，但是相似的。</li>
+</ol>
+<p>基于Batch的算法(Batch-GD, LBFGS, OWLQN)都是可以进行无损的并行化的。而基于SGD的算法（Ad Predictor， FTRL－Proximal）都只能进行有损的并行化。</p>
+<p>并行化的工具<strong>MPI和OpenMP</strong></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="L1正则化求导方法"><a href="#L1正则化求导方法" class="headerlink" title="L1正则化求导方法"></a>L1正则化求导方法</h2><h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>线性回归一般形式：$h(X) = X\theta$</p>
+<p>需要极小化的函数为：$J(\theta) = \frac{1}{2} (X\theta - Y)^T(X\theta -Y)$</p>
+<p>梯度下降求解，每一轮迭代$\theta$表达式为：$\theta = \theta - \alpha X^T (X\theta - Y)$</p>
+<p>最小二乘法，结果为：$\theta = (X^T X)^{-1} X^T Y$</p>
+<h3 id="Ridge回归"><a href="#Ridge回归" class="headerlink" title="Ridge回归"></a>Ridge回归</h3><p>损失函数为：$J(\theta) = \frac{1}{2} (X\theta - Y)^T (X\theta—Y) + \frac{1}{2} \alpha ||\theta||^2_2$</p>
+<p>每一轮$\theta $迭代表达式为：$\theta = \theta - (\beta X^T (X\theta - Y) + \alpha \theta)$，$\beta$ 为步长</p>
+<p>最小二乘法，结果为：$\theta = (X^TX + \alpha I)^{-1} X^T Y$</p>
+<p>Ridge回归在不抛弃任何一个变量的情况下，缩小的回归系数，使得模型相对而言比较稳定，但是模型的变量很多，模型解释性差。</p>
+<h2 id="Lasso回归"><a href="#Lasso回归" class="headerlink" title="Lasso回归"></a>Lasso回归</h2><p>损失函数为：$J(\theta) = \frac{1}{2} (X\theta - Y)^T (X\theta—Y) + \frac{1}{2} \alpha ||\theta||_1$</p>
+<p>由于$||\theta||_1$在0处不存在导数，所以需要借助坐标下降法或最小角回归法进行计算。</p>
+<h4 id="坐标下降法"><a href="#坐标下降法" class="headerlink" title="坐标下降法"></a>坐标下降法</h4><p>坐标下降法的原理为：一个可微的凸函数$J(\theta)$，其中$\theta$是$n\times 1$的向量。如果在某一点$\bar{\theta}$， 是的$J(\theta)$在每一个坐标轴$\bar{\theta}(i=1,2,\cdots, n)$都是最小值，则$J(\bar{\theta})$就是一个全局的最小值。</p>
 <ul>
-<li>进程是资源分配的基本单位，线程是CPU调度或程序执行的最小单位。在Mac、Windows等采用微内核结构的操作系统中，进程只是资源分配的单位，而不是调度运行的单位，真正调度运行的单位是线程。因此实现并发功能的单位是线程。</li>
-<li>进程有独立的地址空间，启动一个新的进程，就需要建立众多的数据表来维护它的代码段、堆栈段、数据段，是一种非常昂贵的多任务工作方式。而运行一个进程中的线程，它们之间共享大部分数据，使用相同的地址空间，因此启动/切换一个线程比进程操作要快，花费要小。但是线程拥有自己的局部变量与堆栈。</li>
-<li>线程之间通信比较方便。同一进程下的线程共享数据（比如全部变量、静态变量），通过这些数据来通信方便快捷，但需要处理好访问变量的同步与互斥。而进程之间只能通过进程通信的方式进行。</li>
-<li>多进程比多线程健壮，一个线程死掉整个进程就死掉了。但保护模式下，进程死掉对另一个进程没有直接影响。</li>
-<li>每个线程都有自己的一个程序入口、顺序执行序列和程序的出口，但线程不能独立执行，必须依附于程序之中，由应用程序提供多个线程的并发控制。</li>
-</ul>
+<li><p>随机为$\theta$向量随机初始化一个值，为$\theta^{(0)}$，括号中的数字代表迭代次数。</p>
 </li>
-<li><p>什么是线程安全？</p>
-<ul>
-<li>如果多线程的程序运行结果是可预期的，与单线程的运行结果一致，就是线程安全的。</li>
-</ul>
+<li><p>对于第k轮迭代，有</p>
+<script type="math/tex; mode=display">
+\theta^{(k)}_i \in argmin J(\theta_1^{(k)}, \theta_2^{(k)}, \cdots, \theta_{i-1}^{(k)}, \theta_i, \theta_{i+1}^{(k-1)}, \cdots, \theta_n^{(k-1)})</script><p>只有$\theta_i$ 为变量，其余为常量</p>
 </li>
-<li><p>线程的基本概念、线程的基本状态及状态之间的关系？</p>
-<ul>
-<li><p>线程是CPU使用的基本单元；由线程ID、程序计数器、寄存器集合与堆栈组成。与属于同一进程的其他线程共享代码段、数据段与其他操作系统资源（如打开文件和信号）</p>
-</li>
-<li><p>线程有四种状态：新生状态、可运行状态、被阻塞状态、死亡状态</p>
-</li>
-<li><p>进程有三种状态：就绪状态、执行状态、阻塞状态</p>
+<li><p>检查$\theta^{(k)}$与$\theta^{(k-1)}$向量在各个维度上的变化情况，如果在所有维度变化都足够小，则$\theta^{(k)}$为最终结果，否则转入步骤2，继续k+1轮迭代</p>
 </li>
 </ul>
-</li>
-<li><p>多线程同步和互斥有几种实现方式？</p>
-<ul>
-<li>线程间同步方法分为两类：</li>
-<li>用户模式：不需要切换内核态，只在用户态完成操作（原子操作、临界区）</li>
-<li>内核模式：利用系统内核对象的 单一性同步，使用时需要切换内核态与用户态（事件、信号量、互斥量）</li>
-</ul>
-</li>
-<li><p>堆和栈的区别：</p>
-<p>一个由C/C++编译的程序占用内存分为以下几个部分：</p>
-<ul>
-<li>栈区（Stack）——由编译器自动分配释放，存放函数的参数值，局部变量的值。类似于数据结构中的栈</li>
-<li>堆区（Heap）——由程序员分配释放，若程序员不释放，程序结束后由操作系统释放。类似于链表。利用malloc函数或者new运算符</li>
-<li>全局区（静态区）（Static）——全局变量和静态变量存储在此，初始化后的全局变量与静态变量在一块区域，未初始化的在相邻的另一块区域。程序结束系统释放</li>
-<li>文字常量区——常量字符串。程序结束系统释放</li>
-<li>程序代码区——存放函数体的二进制代码</li>
-</ul>
-<pre><code class="lang-c++">//main.cpp 
-int a = 0;  // 全局初始化区 
-char *p1;   // 全局未初始化区 
-main() 
-{ 
-int b;         // 栈 
-char s[] = &quot;abc&quot;; // 栈 
-char *p2;   // 栈 
-char *p3 = &quot;123456&quot;; // 123456\0在常量区，p3在栈上。 
-static int c =0； // 全局（静态）初始化区 
-p1 = (char *)malloc(10); 
-p2 = (char *)malloc(20); 
-// 分配得来得10和20字节的区域就在堆区, p1,p2本身在栈上。 
-strcpy(p1, &quot;123456&quot;); // 123456\0放在常量区，编译器可能会将它与p3所指向的&quot;123456&quot;优化成一个地方。 
-}
-</code></pre>
-</li>
-<li><p>fork()函数</p>
-<ul>
-<li>fork函数会返回两次结果，因为操作系统会把当前进程的数据复制一遍，然后程序就分为两个进程继续运行后面的代码，fork分别在父进程和子进程中返回。子进程中返回的值pid为0，父进程返回的是子进程id</li>
-</ul>
-</li>
-<li><p>​</p>
-</li>
+<h3 id="最小角回归法"><a href="#最小角回归法" class="headerlink" title="最小角回归法"></a>最小角回归法</h3><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/34670728" target="_blank" rel="noopener">Logistic Regression常见面试题整理</a></li>
 </ol>
 
       
@@ -552,12 +599,12 @@ strcpy(p1, &quot;123456&quot;); // 123456\0放在常量区，编译器可能会�
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>c++面试</p>
-    <p><span>文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span>文章标题:</span>面试-逻辑回归</p>
+    <p><span>文章字数:</span><span class="post-count">1.9k</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-04-02, 14:58:20</p>
-    <p><span>最后更新:</span>2018-04-28, 13:12:18</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/04/02/c-面试/" title="c++面试">http://yoursite.com/2018/04/02/c-面试/</a>
+    <p><span>发布时间:</span>2018-09-20, 11:05:12</p>
+    <p><span>最后更新:</span>2018-09-25, 23:10:55</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/09/20/面试-逻辑回归/" title="面试-逻辑回归">http://yoursite.com/2018/09/20/面试-逻辑回归/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
