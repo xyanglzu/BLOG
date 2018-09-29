@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>love fang | 小金的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="love fang | 小金的博客">
+  <title>机器学习-最优化方法 | 小金的博客</title>
+  <meta name="keywords" content=" 优化方法 ">
+  <meta name="description" content="机器学习-最优化方法 | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -432,24 +432,36 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-love-fang" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-机器学习-最优化方法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">love fang</h1>
+        <h1 class="article-title">机器学习-最优化方法</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+            <a href="javascript:" data-rel="机器学习">机器学习</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">优化方法</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-03-27 09:35:24'>2018-03-26 21:08</time>
+        创建时间:<time class="date" title='更新时间: 2018-09-28 15:04:55'>2018-09-26 15:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4</span>
+        <span>字数:139</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -468,7 +480,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我爱小芳"><span class="toc-text">我爱小芳</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#梯度下降法（Gradient-Descent）"><span class="toc-text">梯度下降法（Gradient Descent）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动量（Monmentum）"><span class="toc-text">动量（Monmentum）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nesterov-Momentum"><span class="toc-text">Nesterov Momentum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#共轭梯度法（Conjugate-Gradient）"><span class="toc-text">共轭梯度法（Conjugate Gradient）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#牛顿法"><span class="toc-text">牛顿法</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -483,7 +495,81 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我爱小芳"><a href="#我爱小芳" class="headerlink" title="我爱小芳"></a>我爱小芳</h1>
+        <h1 id="梯度下降法（Gradient-Descent）"><a href="#梯度下降法（Gradient-Descent）" class="headerlink" title="梯度下降法（Gradient Descent）"></a>梯度下降法（Gradient Descent）</h1><p>核心思想：梯度是函数上升最快的方向，而梯度下降是沿着梯度的负方向迭代。它通过每次在当前梯度方向向前迈一步，来逐渐逼近函数的最小值。  </p>
+<p>在第$n$次迭代中，参数$\theta_n = \theta_{n-1} + \Delta \theta$  </p>
+<p>我们将损失函数在$\theta_{n-1}$处进行一阶泰勒展开：</p>
+<script type="math/tex; mode=display">
+L(\theta_n) = L(\theta_{n-1} + \Delta \theta) \approx L(\theta_{n-1}) + L'(\theta_{n-1})\Delta \theta</script><p>为了使得$L(\theta_n) &lt; L(\theta_{n-1})$，有</p>
+<script type="math/tex; mode=display">
+L(\theta_n) - L(\theta_{n-1})<0 
+
+\Leftrightarrow L'(\theta_{n-1})\Delta \theta < 0</script><p>可取$\Delta \theta = -\alpha L’(\theta_{n-1})$，则$L’(\theta_{n-1})\Delta \theta = -\alpha (L’(\theta_{n-1}))^2\ \ \ \  \{\alpha&gt;0\}$大于等于0恒成立。所以得到梯度下降的迭代公式：</p>
+<script type="math/tex; mode=display">
+\theta_n := \theta_{n-1} - \alpha L'(\theta_{n-1})</script><p>梯度下降根据每次迭代求解时带入的样本数，可分为：全量梯度下降（计算所有样本的损失），批量梯度下降（每次计算一个batch样本的损失）和随机梯度下降（每次随机选取一个样本的计算损失）。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>全量梯度下降（DG）</th>
+<th>随机梯度下降（SDG）</th>
+<th>批量梯度下降（BDG）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>更新次数少</td>
+<td>每次执行一次更新只需要一个训练样本，执行速度快，可寻找到更优的局部最小</td>
+<td>可以减少参数更新的波动；小批量样本的大小范围是从50到256</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>训练速度慢，有可能收敛到局部最优</td>
+<td>频繁的更新使得参数间具有高方差，损失函数以不同的强度波动，最终将收敛到最小限度</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>梯度下降及其变体面临的挑战：</strong></p>
+<ol>
+<li>很难选择出合适的学习率。太小的学习率会导致网络收敛过于缓慢，而学习率太大可能会影响收敛，并导致损失函数在最小值上波动，甚至出现梯度发散。</li>
+<li>此外，相同的学习率并不适用于所有的参数更新。如果训练集数据很稀疏，且特征频率非常不同，则不应该将其全部更新到相同的程度，但是对于很少出现的特征，应使用更大的学习率。</li>
+<li>在神经网络中，最小化非凸误差函数的另一个关键挑战是避免陷于多个其他局部最小值中。实际上，问题并非源于局部极小值，而是来自鞍点，即一个维度向上倾斜且另一维度向下倾斜的点。这些鞍点通常被相同误差值的平面所包围，这使得SGD算法很难脱离出来，因为梯度在所有维度上接近于零。</li>
+</ol>
+<h1 id="动量（Monmentum）"><a href="#动量（Monmentum）" class="headerlink" title="动量（Monmentum）"></a>动量（Monmentum）</h1><p>SGD中，每次的步长一致，并且方向都是当前梯度的方向，这会收敛的不稳定性：无论在什么位置，总是以相同的“步子”向前迈。  </p>
+<p>Momentum的思想就是模拟物体运动的惯性：当我们跑步时转弯，我们最终的前进方向是由我们之前的方向和转弯的方向共同决定的。Momentum在每次更新时，保留一部分上次的更新方向：</p>
+<script type="math/tex; mode=display">
+\Delta \theta_n = \rho\Delta \theta_{n-1} + g_{n-1}
+
+\theta_n:=\theta_{n-1} - \alpha \Delta \theta_n</script><p>这里$\rho$决定了保留多少上次更新的方向信息，为0-1，初始可以取0.5，随着迭代逐渐增大。</p>
+<p>优点：一定程度上缓解了SGD收敛不稳定的问题，并且有一定的摆脱局部最优的能力（当前梯度为0时，仍可能按照上次迭代的方向冲出局部最优点）</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fvn0bweuk9j30lg050769.jpg" alt="image-20180926161018813"></p>
+<p>左图为SGD，右图为Momentum</p>
+<h1 id="Nesterov-Momentum"><a href="#Nesterov-Momentum" class="headerlink" title="Nesterov Momentum"></a>Nesterov Momentum</h1><p>Nesterov Momentum又叫Nesterov 梯度加速法（NAG）。</p>
+<p>通过上述，我们知道，在每次更新的时候，都在$\rho \Delta \theta_{n-1} + L’(\theta_{n-1})$走$\alpha$这么远，那么我们为什么不直接走到这个位置，然后从这个位置的梯度再走一次呢？为此，引出NAG的迭代公式：</p>
+<script type="math/tex; mode=display">
+\Delta \theta_n = \rho \Delta \theta_{n-1} + g(\theta_{n-1} - \alpha \Delta \theta_{n-1})
+
+\theta_n := \theta_{n-1} - \alpha \Delta \theta_n</script><p>NAG的等效形式：</p>
+<script type="math/tex; mode=display">
+\Delta \theta_n = \rho \Delta \theta_{n-1} + g_{n-1} + \rho(g_{n-1} - g_{n-2})
+
+\theta_n := \theta_{n-1} - \alpha \Delta \theta_n</script><p>它的直观含义就很明显了：如果这次的梯度比上次的梯度变大了，那么有理由相信它会继续变大下去，那我就把预计要增大的部分提前加进来；如果相比上次变小了，也是类似的情况。</p>
+<p>所以NAG本质上是多考虑了目标函数的二阶导信息，怪不得可以加速收敛了！其实所谓“往前看”的说法，在牛顿法这样的二阶方法中也是经常提到的，比喻起来是说“往前看”，数学本质上则是利用了目标函数的二阶导信息。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fvn01729w7j30p3088wgb.jpg" alt="image.png"><br>蓝色的线代表原始的Momentum更新方向，在NAG中，我们先求解得到了这个方向，也即棕色的线，然后求解此处的梯度（红色的线），从而得到最终的前进方向。</p>
+<h1 id="共轭梯度法（Conjugate-Gradient）"><a href="#共轭梯度法（Conjugate-Gradient）" class="headerlink" title="共轭梯度法（Conjugate Gradient）"></a>共轭梯度法（Conjugate Gradient）</h1><p>给一个正定矩阵$A$，如果两个向量$u$和$v$满足$u^T A v=0$，就说$u$与$v$是关于$A$共轭的。</p>
+<p>一般而言，设$A$是$n\times n$的对称正定矩阵，若$n$维欧式空间中的非零向量组$d^{(1)}, d^{(2)}, \cdots, d^{(k)}$,他们两两关于$A$共轭，即满足</p>
+<script type="math/tex; mode=display">
+(d^{(i)})^T A d^{(j)} = 0 \space \space
+(i \neq j; i = 1, 2, \cdots, k; j =  1, 2, \cdots, k)</script><p>称这个向量组关于$A$共轭，或称它们为$A$的$k$个共轭方向</p>
+<h1 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h1><p>牛顿法不仅使用了一阶导数，还利用了二阶导数来更新参数，形式化的公式如下:</p>
+<script type="math/tex; mode=display">
+\theta_n := \theta_{n-1} - \alpha \frac{L'_{n-1}}{L''_{n-1}}</script><p>我们将损失函数在$\theta_{n-1}$处进行二阶泰勒展开：</p>
+<script type="math/tex; mode=display">
+L(\theta_n) = L(\theta_{n-1} + \Delta \theta) \approx L(\theta_{n-1}) + L'(\theta_{n-1})\Delta \theta + \frac{1}{2} L''(\theta_{n-1}) \Delta \theta^2</script><p>假设$\theta_n$取到目标函数的极小点，有$\nabla L(\theta_n)=0$,即$=0$</p>
+
       
        
     </div>
@@ -492,12 +578,12 @@
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>love fang</p>
-    <p><span>文章字数:</span><span class="post-count">4</span></p>
+    <p><span>文章标题:</span>机器学习-最优化方法</p>
+    <p><span>文章字数:</span><span class="post-count">139</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-03-26, 21:08:31</p>
-    <p><span>最后更新:</span>2018-03-27, 09:35:24</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/03/26/love-fang/" title="love fang">http://yoursite.com/2018/03/26/love-fang/</a>
+    <p><span>发布时间:</span>2018-09-26, 15:56:19</p>
+    <p><span>最后更新:</span>2018-09-28, 15:04:55</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/09/26/机器学习-最优化方法/" title="机器学习-最优化方法">http://yoursite.com/2018/09/26/机器学习-最优化方法/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
