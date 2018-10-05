@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>链表-合并两个排序的链表 | 小金的博客</title>
-  <meta name="keywords" content=" 链表 ">
-  <meta name="description" content="链表-合并两个排序的链表 | 小金的博客">
+  <title>操作系统 | 小金的博客</title>
+  <meta name="keywords" content=" 操作系统 ">
+  <meta name="description" content="操作系统 | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -444,9 +444,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-剑指offer-合并两个排序的链表" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-面试-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">链表-合并两个排序的链表</h1>
+        <h1 class="article-title">操作系统</h1>
     
     <div class="article-meta">
         
@@ -454,26 +454,26 @@
         
         <span class="book">
             
-            <a href="javascript:" data-rel="剑指offer">剑指offer</a>
+            <a href="javascript:" data-rel="面试">面试</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color3">链表</a>
+            <a href="javascript:" class="color5">操作系统</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-09-21 11:16:58'>2018-09-09 16:21</time>
+        创建时间:<time class="date" title='更新时间: 2018-10-05 17:35:31'>2018-09-30 15:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:190</span>
+        <span>字数:2.6k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -492,7 +492,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -507,40 +507,128 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
-<p><a href="https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=13&amp;tqId=11169&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目链接</a></p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>随便新建一个结点，可以作为新链表的头结点。输出头结点的next即可。</p>
-<p>归并循环条件为两个链表都不为空，注意新链表和旧链表向后移动指针。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p><strong>python代码</strong></p>
-<pre><code class="lang-python"># -*- coding:utf-8 -*-
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-    # 返回合并后列表
-    def Merge(self, pHead1, pHead2):
-        # write code here
-        pHead = ListNode(0)
-        p = pHead
-
-        while pHead1 and pHead2:
-            if pHead1.val &lt;= pHead2.val:
-                p.next = pHead1
-                pHead1 = pHead1.next
-            else:
-                p.next = pHead2
-                pHead2 = pHead2.next
-            p = p.next
-
-        if pHead1:
-            p.next = pHead1
-        if pHead2:
-            p.next = pHead2
-
-        return pHead.next
-</code></pre>
+        <p><strong>1. 进程和线程以及它们的区别。</strong></p>
+<ul>
+<li>进程是对运行时程序的封装，是系统进行资源调度和分配的基本单位，实现了操作系统的并发；</li>
+<li>线程是进程的子任务，是CPU调度和分派的基本单位，用于保证程序的实时性，实现进程内部的并发；</li>
+<li>一个程序至少有一个进程，一个进程至少有一个线程，线程依赖于进程存在；</li>
+<li>进程在执行过程中拥有独立的内存单元，而多个线程共享进程的内存。</li>
+</ul>
+<p><strong>2. 进程间通信方式。</strong></p>
+<ul>
+<li><strong>管道(pipe)及命名管道(named pipe)</strong>：管道可用于具有亲缘关系的父子进程间的通信，命名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信。</li>
+<li><strong>信号(signal)</strong>：信号是一种比较复杂的通信方式，用于通知接受进程某个事件已经发生。</li>
+<li><strong>消息队列</strong>：消息队列是消息的链接表，它克服了以上两种通信方式中信号量有限的缺点，具有写权限的进程可以按照一定规则向消息队列中添加新消息；对消息队列有读权限的进程则可以从消息队列中读取消息。</li>
+<li><strong>共享内存</strong>：可以说这是最有用的进程间通信方式。它使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等。</li>
+<li><strong>信号量</strong>：主要作为进程之间以及同一进程的不同线程之间的同步和互斥手段。</li>
+<li><strong>套接字</strong>：这是一种更为一般的进程通信机制，可用于网络中不同机器之间的进程通信。</li>
+</ul>
+<p><strong>3. 线程同步的方式。</strong></p>
+<ul>
+<li><strong>互斥量(Synchronized/Lock)：</strong>采用互斥对象机制，只有拥有互斥对象的线程才能访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。</li>
+<li><strong>信号量(Semphare)：</strong>它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件(信号)(Wait/Notify)：</strong>通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</li>
+</ul>
+<p><strong>4. 什么是死锁？死锁产生的条件？</strong></p>
+<ul>
+<li>死锁是两个或者多个并发进程中，如果每个进程都持有某种资源而又等待其他进程释放它或它们现在保持的资源，在未来改变这种状态之前都不能向前推进，称这一组进程产生了死锁。通俗的讲就是两个或者多个进程无限期的阻塞、相互等待的一种状态。</li>
+<li>死锁产生的四个条件：<ul>
+<li>互斥条件：一个资源一次只能被一个进程所使用</li>
+<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得资源保持不放</li>
+<li>不剥夺条件：进程获得的资源，在为完全使用完之前，不能强行剥夺</li>
+<li>循环等待条件：若干进程之间形成一种头尾相接的环形等待资源关系</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. 进程有哪几种状态？</strong></p>
+<ul>
+<li>就绪状态：进程已获得除处理器以外的所需资源，等待分配处理器资源</li>
+<li>运行状态：占用处理器资源运行，处于此状态的进程数小于等于CPU数</li>
+<li>阻塞状态：进程等待某种条件，条件未满足前无法执行</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fvw8puomm6j30cq07z76a.jpg" alt="image-20181004155035520"></p>
+<p><strong>6. 线程有哪几种状态？</strong></p>
+<ul>
+<li>创建（new）</li>
+<li>就绪（runnable/start）</li>
+<li>运行（running）</li>
+<li>阻塞（blocked）</li>
+<li>等待（waiting）</li>
+<li>时间等待（time waiting）</li>
+<li>消亡（dead/terminated）</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fvw9dhfagrj30nx0gh0ym.jpg" alt="image-20181004161318832"></p>
+<p><strong>7. 分页和分段有什么区别？</strong></p>
+<p>段式存储管理是一种符合用户视角的内存分配管理方案。在段式存储管理中，将程序的地址空间分为若干段，如代码段、数据段、堆栈段；这样每个进程都有一个二维地址空间，相互独立，互不干扰。<strong>优点</strong>在于：没有内碎片（因为段大小可变，改变段大小来消除内碎片）；但段换入换出时，会产生外碎片（比如4k的段换成5k的段，会产生1k的外碎片）。</p>
+<p>页式存储管理是一种用户视角内存与物理内存相分离的内存管理方案。在页式存储管理中，将程序的逻辑地址划分为固定大小的页，而物理内存划分为同样大小的帧，程序加载时，可以将任意一页放入内存中的任意一帧，这些帧不必连续，从而实现了离散分离。<strong>优点</strong>：没有外碎片（因为页的大小固定），但是会产生内碎片（一个页可能填充不满）。</p>
+<p><strong>区别</strong>：</p>
+<ul>
+<li><strong>目的不同</strong>：分页是由于系统管理的需要而不是用户的需要，它是信息的物理单位；分段目的是更好满足用户需要，是信息的逻辑单位，含有一组其意义相对完整的信息；</li>
+<li><strong>大小不同</strong>：页大小固定且由系统决定，而段的长度不固定，由其所完成的功能决定。</li>
+<li><strong>地址空间不同</strong>：段向用户提供二维地址空间；页提供一维地址空间。</li>
+<li><strong>信息共享</strong>：段是信息的逻辑单位，便于存储保护和信息的共享；页的保护和共享受限制。</li>
+<li><strong>内存碎片</strong>：页式存储管理没有外碎片，因为页大小固定，但是有内碎片；段式存储管没有内碎片，因为段大小可变，但是有外碎片。</li>
+</ul>
+<p><strong>8. 操作系统进程调度策略有哪几种？</strong></p>
+<ul>
+<li><strong>FCFS(先来先服务，队列实现，非抢占)</strong>：先请求CPU的进程先分配到CPU</li>
+<li><strong>SJF(最短作业优先调度算法)</strong>：平均等待时间最短，但难以知道下一个CPU区间长度</li>
+<li><strong>优先级调度算法(可以是抢占的，也可以是非抢占的)</strong>：优先级越高越先分配CPU，相同优先级先来先服务。存在问题是：低优先级进程无穷等待CPU，会导致无穷阻塞或饥饿；解决方案：老化</li>
+<li><strong>时间片轮转调度算法(可抢占的)</strong>：队列中没有进程被分配超过一个时间片的CPU时间，除非它是唯一一个可运行的进程。如果进程的CPU区间超过了一个时间片，那么进程就被抢占并放回就绪队列中。</li>
+<li><strong>多级队列调度算法</strong>：将就绪队列分为多个独立的队列，每个队列都有自己的调度算法，队列之间采用固定优先级抢占调度。</li>
+<li><strong>多级反馈队列调度算法</strong>：与多级队列调度算法相比，允许进程在队列之间移动；若进程使用过多CPU时间，那么它就会被转移到更低的优先级队列；在较低优先级队列等待时间过长的进程会被转移到更高优先级队列，以防饥饿发生。</li>
+</ul>
+<p><strong>9. 进程同步有哪几种机制？</strong></p>
+<ul>
+<li><strong>原子操作</strong></li>
+<li><strong>信号量机制</strong></li>
+<li><strong>自旋锁管程</strong></li>
+<li><strong>会合</strong></li>
+<li><strong>分布式系统</strong></li>
+</ul>
+<p><strong>10. 什么是虚拟内存？</strong></p>
+<ul>
+<li><p>内存发展历程</p>
+<ul>
+<li>没有内存抽象（单进程，除去操作系统所用的内存之外，全部给用户程序使用</li>
+<li>有内存抽象（多进程，进程独立地址空间，交换技术）</li>
+<li>连续内存分配（固定大小分区（多道程序的程度受限），可变分区（首次适应，最佳适应，最差适应），碎片）</li>
+<li>不连续内存分配（分段，分页，段页式，虚拟内存）</li>
+</ul>
+</li>
+<li><p>虚拟内存</p>
+<p>虚拟存在允许执行进程不必完全在内存中。其基本思想是：每个进程拥有独立地址空间，这个空间被分为大小相等的多个块，称为页。每个页都是一段连续的地址。这些页被映射到物理内存，但不是所有页必须在内存中才能运行程序。当程序引用到一部分在物理内存中的地址空间时，由硬件进行必要的映射。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fvxh2u553qj308x0af403.jpg" alt="image-20181005172526379"></p>
+<p>图中可以看出，虚拟内存实际上可以比物理内存大。当访问虚拟内存时，会访问MMU（内存管理单元）去匹配对应的物理地址（比如图中的0，1，2）。如果虚拟内存的页并不存在于物理内存中（如图中的3,4），会产生缺页中断，从磁盘中取得缺的页放入内存，如果内存已满，还会根据某种算法将磁盘中的页换出。</p>
+</li>
+<li><p>页面置换算法</p>
+<ul>
+<li><strong>FIFO先进先出算法</strong>：操作系统中经常被用到，比如作业调度</li>
+<li><strong>LRU（最近最少使用算法 Least recently use）</strong>：根据使用时间到现在的长短来判断</li>
+<li><strong>LFU（最少使用次数算法 Least frequently use）</strong>：根据使用次数来判断</li>
+<li><strong>OPT（最优置换算法）</strong>：理论的最优，保证置换出去的是不再使用的页，或者在实际内存中最晚使用的算法</li>
+</ul>
+</li>
+<li><p>虚拟内存应用与优点：</p>
+<ul>
+<li>在内存中可保留多个进程，并发度提高</li>
+<li>解除了用户与内存之间的紧密约束，进程可以比内存的全部空间还大</li>
+</ul>
+</li>
+</ul>
+<p><strong>11. 颠簸</strong></p>
+<p>本质是指频繁的页调度行为，具体来讲，进程发生缺页终端，必须置换某一页，然而其他所有页都在使用，置换一个页，但立刻又需要这个页。因此会不断的产生缺页中断。</p>
+<p>解决策略：</p>
+<ul>
+<li>如果是页面替换策略失误，可以修改替换算法；</li>
+<li>如果是因为运行的程序太多，需要降低多道程序的数量</li>
+<li>终止进程或增加物理内存容量</li>
+</ul>
+<p><strong>12. 局部性原理</strong></p>
+<ul>
+<li>时间上的局部性：最近被访问的页在不久的将来还会被访问</li>
+<li>空间上的局部性：内存中被访问的页周围的页也很可能被访问</li>
+</ul>
 
       
        
@@ -550,12 +638,12 @@ class Solution:
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>链表-合并两个排序的链表</p>
-    <p><span>文章字数:</span><span class="post-count">190</span></p>
+    <p><span>文章标题:</span>操作系统</p>
+    <p><span>文章字数:</span><span class="post-count">2.6k</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-09-09, 16:21:02</p>
-    <p><span>最后更新:</span>2018-09-21, 11:16:58</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/09/09/剑指offer-合并两个排序的链表/" title="链表-合并两个排序的链表">http://yoursite.com/2018/09/09/剑指offer-合并两个排序的链表/</a>
+    <p><span>发布时间:</span>2018-09-30, 15:56:11</p>
+    <p><span>最后更新:</span>2018-10-05, 17:35:31</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/09/30/面试-操作系统/" title="操作系统">http://yoursite.com/2018/09/30/面试-操作系统/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
