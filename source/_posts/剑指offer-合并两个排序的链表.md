@@ -1,5 +1,5 @@
 ---
-title: 剑指offer-合并两个排序的链表
+title: 链表-合并两个排序的链表
 toc: true
 date: 2018-09-09 16:21:02
 tags: 链表

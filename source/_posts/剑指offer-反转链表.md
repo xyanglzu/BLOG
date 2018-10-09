@@ -1,5 +1,5 @@
 ---
-title: 剑指offer-反转链表
+title: 链表-反转链表
 toc: true
 date: 2018-09-09 15:28:55
 tags: 链表
