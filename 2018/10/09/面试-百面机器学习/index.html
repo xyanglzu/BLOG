@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>Leecode-551.Student Attendance Record I | 小金的博客</title>
-  <meta name="keywords" content=" 字符串 ">
-  <meta name="description" content="Leecode-551.Student Attendance Record I | 小金的博客">
+  <title>面试-百面机器学习 | 小金的博客</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="面试-百面机器学习 | 小金的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这是小金的博客">
 <meta property="og:type" content="website">
@@ -454,9 +454,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Leecode-551-Student-Attendance-Record-I" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-面试-百面机器学习" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Leecode-551.Student Attendance Record I</h1>
+        <h1 class="article-title">面试-百面机器学习</h1>
     
     <div class="article-meta">
         
@@ -464,26 +464,20 @@
         
         <span class="book">
             
-            <a href="javascript:" data-rel="Leecode">Leecode</a>
+            <a href="javascript:" data-rel="面试">面试</a>
             
         </span>
         
         
-        <span class="tag">
-            
-            <a href="javascript:" class="color4">字符串</a>
-            
-        </span>
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-10-09 11:08:42'>2018-10-09 10:36</time>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-09-15 13:57:48'>2018-09-15 13:44</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:217</span>
+        <span>字数:557</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -502,7 +496,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-特征工程"><span class="toc-text">1. 特征工程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-模型评估"><span class="toc-text">2. 模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-评估指标的局限性"><span class="toc-text">2.1. 评估指标的局限性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-准确率的局限性"><span class="toc-text">2.1.1 准确率的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-精确率与召回率的权衡"><span class="toc-text">2.1.2 精确率与召回率的权衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-平方根误差"><span class="toc-text">2.1.3 平方根误差</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -517,44 +511,21 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个字符串来代表一个学生的出勤纪录，这个纪录仅包含以下三个字符：</p>
-<ol>
-<li><strong>‘A’</strong> : Absent，缺勤</li>
-<li><strong>‘L’</strong> : Late，迟到</li>
-<li><strong>‘P’</strong> : Present，到场</li>
-</ol>
-<p>如果一个学生的出勤纪录中不<strong>超过一个’A’(缺勤)</strong>并且<strong>不超过两个连续的’L’(迟到)</strong>,那么这个学生会被奖赏。</p>
-<p>你需要根据这个学生的出勤纪录判断他是否会被奖赏。</p>
-<p><strong>示例 1:</strong></p>
-<pre><code>输入: &quot;PPALLP&quot;
-输出: True
-</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: &quot;PPALLL&quot;
-输出: False
-</code></pre><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p><em>对字符串扫描一遍，如果是A就计数器A加1，</em></p>
-<pre><code class="lang-python">class Solution(object):
-    def checkRecord(self, s):
-        &quot;&quot;&quot;
-        :type s: str
-        :rtype: bool
-        &quot;&quot;&quot;
-        slist = list(s)
-        count_a = 0
-        count_l = 0
-        for i in range(len(slist)):
-            if slist[i] == &#39;A&#39;:
-                count_a += 1
-                if count_a &gt; 1:
-                    return False
-            if slist[i] == &#39;L&#39;:
-                count_l += 1
-                if count_l &gt; 2:
-                    return False
-            else:
-                count_l = 0
-        return True
-</code></pre>
-
+        <h1 id="1-特征工程"><a href="#1-特征工程" class="headerlink" title="1. 特征工程"></a>1. 特征工程</h1><h1 id="2-模型评估"><a href="#2-模型评估" class="headerlink" title="2. 模型评估"></a>2. 模型评估</h1><h2 id="2-1-评估指标的局限性"><a href="#2-1-评估指标的局限性" class="headerlink" title="2.1. 评估指标的局限性"></a>2.1. 评估指标的局限性</h2><h3 id="2-1-1-准确率的局限性"><a href="#2-1-1-准确率的局限性" class="headerlink" title="2.1.1 准确率的局限性"></a>2.1.1 准确率的局限性</h3><p>奢侈品广告主想要把广告定位到奢侈品用户。其拿到了一部分为奢侈品用户的数据，并以此为训练集和测试集，训练的分类模型准确率达到了95%以上。但在实际广告中，模型还是将大部分的广告投给了非奢侈品用户。这可能是什么原因造成的？</p>
+<ul>
+<li>奢侈品用户占小部分，虽然分类模型达到了95%，但是并不代表在奢侈品用户的分类准确度达到了95%。若95%为非奢侈品用户，分类模型全部分为非奢侈品，也有95%的准确率。因此评估指标准确率有一定的局限性。</li>
+</ul>
+<h3 id="2-1-2-精确率与召回率的权衡"><a href="#2-1-2-精确率与召回率的权衡" class="headerlink" title="2.1.2 精确率与召回率的权衡"></a>2.1.2 精确率与召回率的权衡</h3><p>Hulu提供视频模糊搜索功能，搜索排序模型返回的Top5精确率非常高，但是在实际使用中，用户还是找不到想要的视频，特别是一些冷门的视频。这是哪个环节出现了问题？</p>
+<ul>
+<li>精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。召回率是指分类正确的正样本占真正正样本的比例。</li>
+<li>排序问题中，通常没有一个确定的阈值把得到的结果判定为正样本或负样本，而是采用TopN返回结果的Precision和Recal来衡量排序模型的性能，即认为模型返回的Top N结果就是模型判定的正样本。</li>
+<li>问题中Precision@5结果非常好，但是实际中，用户为了找到一些冷门的视频，往往会寻找排在较后的位置，但是用户找不到想要的视频，说明此时Recall较低。</li>
+<li>为了综合评价一个排序模型的好坏，不仅要看不同Top N下的Precision@N和Recall@N，而且最好绘制模型的P-R曲线，或者使用F1分数。<ul>
+<li>P-R曲线横轴是召回率，纵轴是精确率。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-3-平方根误差"><a href="#2-1-3-平方根误差" class="headerlink" title="2.1.3 平方根误差"></a>2.1.3 平方根误差</h3>
       
        
     </div>
@@ -563,12 +534,12 @@
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>Leecode-551.Student Attendance Record I</p>
-    <p><span>文章字数:</span><span class="post-count">217</span></p>
+    <p><span>文章标题:</span>面试-百面机器学习</p>
+    <p><span>文章字数:</span><span class="post-count">557</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="xiaojin">xiaojin</a></p>
-    <p><span>发布时间:</span>2018-09-15, 13:44:19</p>
-    <p><span>最后更新:</span>2018-09-15, 13:57:48</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/09/15/Leecode-551-Student-Attendance-Record-I/" title="Leecode-551.Student Attendance Record I">http://yoursite.com/2018/09/15/Leecode-551-Student-Attendance-Record-I/</a>
+    <p><span>发布时间:</span>2018-10-09, 10:36:53</p>
+    <p><span>最后更新:</span>2018-10-09, 11:08:42</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/10/09/面试-百面机器学习/" title="面试-百面机器学习">http://yoursite.com/2018/10/09/面试-百面机器学习/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
