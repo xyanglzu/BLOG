@@ -79,7 +79,7 @@ theme: 3hexo
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:xyanglzu/Blog.git
+  repo: git@github.com:xyanglzu/xyanglzu.github.io.git
   branch: master
 
 math:
