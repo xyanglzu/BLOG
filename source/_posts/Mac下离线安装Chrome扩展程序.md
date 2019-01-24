@@ -2,7 +2,7 @@
 title: Mac下离线安装Chrome扩展程序
 toc: true
 date: 2018-12-14 16:48:22
-tags: Mac, Chrome
+tags: Chrome
 categories: Mac
 ---
 
