@@ -3,7 +3,7 @@ title: Mac下brew使用
 toc: true
 date: 2019-01-03 11:23:36
 tags:
-categories: Mac
+categories: 配置
 ---
 
 Homebrew将工具安装在自己创建的`/usr/local/Cellar`目录下，并在`/usr/local/bin`建立这些工具的符号链接。

@@ -3,7 +3,7 @@ title: Mac下多Python环境
 toc: true
 date: 2018-04-28 09:46:53
 tags: Python
-categories: Mac
+categories: 配置
 
 ---
 

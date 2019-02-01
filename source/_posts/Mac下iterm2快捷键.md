@@ -3,7 +3,7 @@ title: Mac下iterm2快捷键
 toc: true
 date: 2018-12-13 15:40:16
 tags: iterm2
-categories: Mac
+categories: 配置
 ---
 
 # 标签
